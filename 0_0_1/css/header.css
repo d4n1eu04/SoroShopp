@@ -1,0 +1,125 @@
+header{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+    margin: 5px;
+    border-radius: .25em;
+    background-image: linear-gradient(160deg, #3BD952, #1f913b 45%, #1c8879 90%);
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.61);  
+}
+div.logo{
+    font-size: 1.5em;
+    transition: all .4s ease-in-out 0s;
+    margin-right: auto;
+}
+div.logo > span{
+    font-size: 1.1em;
+    font-weight: 900;
+}
+div.logo:hover{
+    cursor: pointer;
+    text-shadow: 0px 0px 10px black;
+}
+div.search{
+    margin: 0px 20px;
+}
+div.search > #searchbar{
+    font-size: .9em;
+    outline: none;
+    border: solid black;
+    border-radius: .3rem;
+    background-color: #ffffff;
+    padding: .55em;
+    width: 290px;
+    transition: all .4s ease-in-out 0s;
+}
+div.search > #searchbar:hover{
+    box-shadow: 0px 0px 8px black;
+    transition: all .4s ease-in-out 0s;
+}
+div.search > #searchbar:focus{
+    box-shadow: 0px 0px 10px black;
+}
+div.userDropdown{
+    border-radius: .3em;
+    position: relative;
+    margin-left: 20px;
+}
+button.btnDrop{
+    color: #ffffff;
+    border: solid black;
+    border-radius: .3em;
+    background-color: black;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: .3em;
+    transition: all .4s ease-in-out 0s;
+}
+div.dropContent{
+    position: absolute;
+    right: 0;
+    top: calc(100% + .5rem);
+    background-color: white;
+    border: solid black;
+    border-radius: .3em;
+    padding: 10px;
+    transition: all .3s ease-in-out 0s;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+}
+div.dropContent > ul{
+    list-style-type: none;
+}
+div.dropContent > ul > li{
+    margin: 10px 0px;
+}
+div.dropContent > ul > li:nth-child(1){
+    margin-top: 0;
+}
+div.dropContent > ul > li:last-child{
+    margin-bottom: 0;
+}
+div.dropContent > ul > li:active{
+    color: #24A652;
+}
+button.btnDrop:hover{
+    background-color: rgba(0,0,0,.85);
+    box-shadow: 0px 0px 8px black;
+    transition: all .4s ease-in-out 0s;
+}
+button.btnDrop:focus{
+    background-color: transparent;
+    color: black;
+    box-shadow: 0px 0px 10px black;
+}
+button.btnDrop:focus + .dropContent{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+nav > ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+nav > ul > li{
+    display: inline-block;
+    margin: 0px 5px;
+}
+li > a{
+    text-decoration: none;
+    color: inherit;
+    transition: all .4s ease-in-out 0s;
+}
+li > a:hover{
+    text-shadow: 0px 0px 10px black;
+    transition: all .1s;
+}
+li > a:active{
+    color: #00ff26;
+}
