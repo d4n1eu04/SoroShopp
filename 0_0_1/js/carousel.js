@@ -14,7 +14,7 @@ btnNext.addEventListener('click', () =>{
         card.classList.remove('carousel__item--visible');
     })
 
-    console.log("cu")
+
     cards[indiceCard].classList.add('carousel__item--visible');
 })
 
@@ -29,6 +29,6 @@ btnPrev.addEventListener('click', () =>{
         card.classList.remove('carousel__item--visible');
     })
 
-    console.log("cu")
+
     cards[indiceCard].classList.add('carousel__item--visible');
 })
