@@ -16,11 +16,8 @@ ul.categorias{
 }
 ul.categorias > li{
     margin: 20px 0px;
-    text-align: justify;
-    font: 700 .95em 'Manjari', cursive;
-}
-ul.categorias > li:nth-child(1){
-    margin-top: 0;
+    text-align: center;
+    font: 00 .95em 'Manjari', cursive;
 }
 ul.categorias > li:last-child{
     margin-bottom: 0;
@@ -37,4 +34,25 @@ ul.categorias > li > a:active{
     border-radius: .3em;
     padding: 1.5em 1.5em;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.61);
+}
+.title_categorias{
+    font-weight: 900;
+    font-size: 1.1em;
+}
+.catigurias{
+    max-height: 435px;
+}
+.slidecarrossel{
+    max-height: 435px;
+    padding: 1.8em;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.61);
+    margin: auto;
+    margin-top: 0px;
+    border-radius: .3em;
+}
+.slidecarrossel > h1{
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.85em;
+    margin: 10px;
 }

@@ -1,10 +1,11 @@
-<h1>Versão 0.0.1</h1>
+<h1>Versão 0.0.1 - test</h1>
 <p>
   HTML
   <ul>
     <li>Headerbar</li>
     <li>Categorias</li>
     <li>CSS inicial</li>
+    <li>progressos no rework no carrossel</li>
    </ul>
   Banco de Dados
   <ul>
@@ -16,7 +17,6 @@
   <h1>Para a próxima versão:</h1>
     <ul>
       <li>Rework na Headerbar</li>
-      <li>Adição de um Carrossel com fotos de produtos ao lado das categorias</li>
       <li>Exibição de Produtos por categoria na página incial</li>
       <li>Atualização e melhorias no BD conforme o avanço do conteúdo de TLBD</li>
     </ul>
