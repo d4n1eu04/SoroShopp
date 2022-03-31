@@ -27,8 +27,14 @@ ul.categorias > li > a:active{
 }
 .container_main{
     display: flex;
+    flex-flow: column nowrap;
     margin: 10px 5px;
     padding: 10px 10px;
+}
+.flexrow{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
 .menu_categorias{
     border-radius: .3em;
@@ -43,9 +49,8 @@ ul.categorias > li > a:active{
     max-height: 435px;
 }
 .slidecarrossel{
-    max-height: 435px;
-    padding: 1.8em;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.61);
+    padding: 0;
+    /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.61);*/
     margin: auto;
     margin-top: 0px;
     border-radius: .3em;
