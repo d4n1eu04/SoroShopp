@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoroShopp</title>
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mainpag.css">
     <link rel="stylesheet" href="css/carousel.css">
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
 </head>
@@ -36,7 +36,7 @@
         </div>
     </header>
     <main class="container_main">
-        <section class="flexrow">
+        <section class="flexrow categcarrossel">
             <nav class="catigurias">
                 <aside class="menu_categorias">
                     <span class="title_categorias">Categorias</span>
@@ -54,10 +54,12 @@
                 </aside>
             </nav>
             <section class="slidecarrossel">
-                <h1>Mais Acessados</h1>
+                <h1>Principais Ofertas</h1>
                 <div class="carousel">
                     <div data-js="carousel__item" class="carousel__item carousel__item--visible">
-                      <picture><img src="img/produto1.jpg" /></picture>
+                      <a href="">
+                          <picture><img src="img/produto1.jpg" /></picture>
+                      </a>
                     </div>
             
                     <div data-js="carousel__item" class="carousel__item">
@@ -72,7 +74,6 @@
                       <button data-js="carousel__button--prev" aria-label="Slide anterior">
                         <
                       </button>
-            
                       <button data-js="carousel__button--next" aria-label="Próximo slide">
                         >
                       </button>
@@ -83,10 +84,11 @@
         <section class="flexrow">
             <section class="prodcategs">
                 <div class="produto">
-                    <h1>Lorem</h1>
                     <picture>
-                        <img src="" alt="">
+                        <img src="products.png" alt="" style="width: 150px; height: 150px">
                     </picture>
+                    <h1>Produto</h1>
+                        <span><strong>VALOR</strong></span>
                 </div>
             </section>
         </section>
