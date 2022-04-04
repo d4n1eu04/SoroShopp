@@ -14,7 +14,7 @@
     /*width: 100%;*/
     max-width: 800px;
     height: 350px;
-    border-radius: .3em;
+    border-radius: .6em;
   }
   
   .carousel .carousel__item--visible {

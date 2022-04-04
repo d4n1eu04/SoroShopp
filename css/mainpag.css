@@ -44,7 +44,7 @@ ul.categorias > li > a:active{
 .menu_categorias{
     border-radius: .3em;
     padding: 1.5em 1.5em;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.61);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.450);
 }
 .title_categorias{
     font-weight: 900;
@@ -66,13 +66,34 @@ ul.categorias > li > a:active{
     font-size: 1.85em;
     margin: 0px 0px 5px 0px;
 }
+.galeriaprodutos{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: 0 0 .6rem 0;
+}
+.galeriaprodutos p{
+    margin: .8rem 1rem .5rem 1rem;
+    text-align: center;
+}
+.vermais{
+    text-decoration: none;
+    color: #00740f;
+    font-size: 1rem;
+    font-weight: 900;
+    transition: all .5s ease-in-out 0s;
+}
+.vermais:hover{
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.750);
+}
 .nomecategoria{
     text-align: center;
-    margin: .5rem 1rem;
+    margin: .5rem 1rem 1rem 1rem;
     font-size: 1.7rem;
 }
 .prodcategs{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -80,11 +101,12 @@ ul.categorias > li > a:active{
     display: flex;
     flex-flow: column nowrap;
     padding: .3em;
+    margin: .5em 0;
     border-radius: .3em;
     max-width: 210px;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.514);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.450);
     transition: all 0.5s ease-in-out 0s;
 }
 .produto:hover{
@@ -97,7 +119,5 @@ ul.categorias > li > a:active{
 .produto h1{
     font-size: 1rem;
     font-weight: 400;
-}
-.produto span{
-
+    margin: .3rem 0;
 }
