@@ -84,7 +84,7 @@ ul.categorias > li > a:active{
     transition: all .5s ease-in-out 0s;
 }
 .vermais:hover{
-    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.750);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 .nomecategoria{
     text-align: center;
@@ -104,7 +104,7 @@ ul.categorias > li > a:active{
     padding: .3em;
     margin: .5em .5rem;
     border-radius: .3em;
-    width: 210px;
+    width: 12em;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.450);
