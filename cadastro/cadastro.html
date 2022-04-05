@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="css/formulario.css">
+        <script src="js/cep.js"></script>
+    </head>
+    <body>
+        <div>
+        <form name="cadastrosoroshop" method="get" action=".">
+            <table>
+                <tr>
+                    <td>
+                        <input type="email" id="email" name="email" placeholder="email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" id="senha" name="senha" placeholder="senha" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <input type="radio" name="masc" id="masc" required>Masc
+                    
+                        <input type="radio" name="fem" id="fem" required>Fem
+                    </td>
+                    <tr>
+                    <td>
+                        <input type="text" id="telefone" nome="telefone" placeholder="(12)34567-9012" required>
+                    </td>
+                </tr>
+                               
+                <tr>
+                    <td>
+                        <input type="number" id="rg" name="rg" placeholder="RG" required> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="cpf" name="cpf" placeholder="CPF" required>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <input name="cep" type="text" id="cep" value="" onblur="pesquisacep(this.value);"
+                         placeholder="CEP"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 
+                        <input name="rua" type="text" id="rua" placeholder="Rua"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 
+                        <input name="numero" type="number" id="numero" placeholder="numero" required/>
+                     </td>
+                </tr>
+                <tr>
+                    <td> 
+                        <input name="complemento" type="text" id="complemento" placeholder="complemento" required/>
+                    </td>
+                </tr>
+                       
+                <tr>
+                    <td>
+                            <input name="bairro" type="text" id="bairro" placeholder="Bairro"/>
+                    </td>
+                <tr>
+                    <td>
+                        <input name="cidade" type="text" id="cidade" placeholder="Cidade"/>
+                </td>
+                </tr>
+               
+                <tr>
+                    <td>
+                            <input name="uf" type="text" id="uf" placeholder="UF"/>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        Podemos fazer parte da sua Vida
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="whatsApp" id="whatsapp">WhatsApp
+                    </td>
+                    <td>
+                        <input type="radio" name="email" id="email">Email
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Cadastrar"></td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+    </body>
+   
+       
+</html>
