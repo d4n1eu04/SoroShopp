@@ -12,20 +12,6 @@ body{
    background-color: rgb(250, 250, 250);
    width: 100%;
 }
-ul.categorias{
-    list-style-type: none;
-}
-ul.categorias > li{
-    margin: 20px 0px;
-    text-align: center;
-    font: 00 .95em 'Manjari', cursive;
-}
-ul.categorias > li:last-child{
-    margin-bottom: 0;
-}
-ul.categorias > li > a:active{
-    color: #00740f;
-}
 .container_main{
     display: flex;
     flex-flow: column nowrap;
@@ -46,12 +32,23 @@ ul.categorias > li > a:active{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.450);
     background-color: white;
 }
+ul.categorias{
+    list-style-type: none;
+}
+ul.categorias > li{
+    margin: 1.6rem 0px;
+    text-align: center;
+    font: 00 .95em 'Manjari', cursive;
+}
+ul.categorias > li:last-child{
+    margin-bottom: 0;
+}
+ul.categorias > li > a:active{
+    color: #00740f;
+}
 .title_categorias{
     font-weight: 900;
     font-size: 1.1em;
-}
-.catigurias{
-    max-height: 435px;
 }
 .slidecarrossel{
     padding: 5px;
