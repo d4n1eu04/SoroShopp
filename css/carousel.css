@@ -11,9 +11,6 @@
   }
   
   .carousel .carousel__item img {
-    /*width: 100%;*/
-    max-width: 800px;
-    height: 350px;
     border-radius: .6em;
   }
   
