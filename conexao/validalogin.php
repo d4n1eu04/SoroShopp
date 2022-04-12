@@ -7,16 +7,12 @@ if(isset($_POST["btnEnvia"])){
     $user = $_POST["user"];
     $password = $_POST["passwd"];
     if((!empty($user)) && (!empty($password))){
-        echo "ahns";
         $result_user = "SELECT iduser, nome, username, email, senha FROM usuario WHERE username = '$user' LIMIT 1";
         $resultado_usuario = mysqli_query($connect, $result_user);
-        printf($result_user);
 
         if($resultado_usuario){
             $row_user = mysqli_fetch_assoc($resultado_usuario);
-            echo $row_user;
             if(password_verify($password, $row_user['senha'])){
-                echo "deu certo";
                 $_SESSION['id'] = $row_user['iduser'];
                 $_SESSION['nome'] = $row_user['nome'];
                 $_SESSION['usuario'] = $row_user['username'];
