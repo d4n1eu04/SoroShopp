@@ -8,9 +8,9 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoroShopp</title>
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mainpag.css">
-    <link rel="stylesheet" href="css/carousel.css">
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -23,7 +23,6 @@ session_start();
         </div>
         <nav>
             <ul>
-                <li><a href="">Ajuda</a></li>
                 <li><a href="">Favoritos</a></li>
             </ul>
         </nav>
@@ -56,7 +55,7 @@ session_start();
                     </ul>
                 </aside>
             </nav>
-            <section class="slidecarrossel">
+            <div class="slidecarrossel">
                 <h1>Principais Ofertas</h1>
                 <div class="carousel">
                     <div data-js="carousel__item" class="carousel__item carousel__item--visible">
@@ -86,7 +85,7 @@ session_start();
                       </button>
                     </div>
                   </div>
-            </section>
+                </div>
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Categoria</h1>
@@ -253,6 +252,13 @@ session_start();
             <p><a href="#" class="vermais">Mais Anúncios</a></p>
         </section>
     </main>
+    <footer>
+        <nav class="redessociais">
+            <a href="">Facebook</a>
+            <a href="">Instagram</a>
+            <a href="">Github</a>
+        </nav>
+    </footer>
 </body>
 <script src="js/carousel.js"></script>
 </html>
