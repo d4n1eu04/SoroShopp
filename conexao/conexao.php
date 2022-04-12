@@ -1,10 +1,12 @@
 <?php
-$server = "localhostdaniell";
-$user = "http";
-$psswd = "";
+$server = "localhost";
+$user = "root";
+$psswd = "3003";
 $database = "soroshopp";
 
 $connect = mysqli_connect($server, $user, $psswd, $database);
 
-
-//echo("Conexão bem sucedida!");
+if(!$connect){
+    die ("conexao cagou");
+}
+?>
