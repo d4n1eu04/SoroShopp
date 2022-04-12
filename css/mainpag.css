@@ -9,7 +9,7 @@
 }
 
 body{
-   background-color: rgb(250, 250, 250);
+   background-color: rgb(247, 247, 247);
    width: 100%;
 }
 .container_main{
@@ -118,4 +118,13 @@ ul.categorias > li > a:active{
     font-size: 1rem;
     font-weight: 400;
     margin: .3rem 0;
+}
+
+#btnSair{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
 }

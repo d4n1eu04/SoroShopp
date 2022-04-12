@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -57,19 +60,19 @@
                 <div class="carousel">
                     <div data-js="carousel__item" class="carousel__item carousel__item--visible">
                         <picture>
-                              <img src="img/produto1.jpg" />
+                              <img src="img/produto1.jpg" style="height: 360px; width: 800px;"/>
                         </picture>
                     </div>
             
                     <div data-js="carousel__item" class="carousel__item">
                         <picture>
-                            <img src="img/produto1.jpg" />
+                            <img src="img/produto2.jpg" style="height: 360px; width: 800px;"/>
                         </picture>
                     </div>
                     
                     <div data-js="carousel__item" class="carousel__item">
                         <picture>
-                            <img src="img/produto1.jpg" />
+                            <img src="img/produto3.jpg" style="height: 360px; width: 800px;"/>
                         </picture>
                     </div>
 
