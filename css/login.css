@@ -52,6 +52,7 @@ form input{
     border-radius: .3rem;
 }
 form button{
+    cursor: pointer;
     font-size: 1rem;
     font-weight: 800;
     border: none;

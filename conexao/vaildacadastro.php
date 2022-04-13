@@ -24,4 +24,4 @@
         $_SESSION['msgerro'] = 'Você não deveria estar aqui';
         header("Location: ../pags/cadastro.php");
     }
-?>
+?>/
