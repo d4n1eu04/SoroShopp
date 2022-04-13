@@ -1,0 +1,79 @@
+#login{
+    margin: 2rem;
+    height: fit-content;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.logincard{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 550px;
+    height: 500px;
+    padding: 4rem 4rem;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.604);
+    border-radius: .3rem;
+    overflow: none;
+}
+.logincard form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.logincard p{
+    margin: 0;
+    color: red;
+}
+p span{
+    color: #0ea063;
+}
+
+.botoes{
+    margin-top: 1rem;
+}
+form label{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 1rem auto 1rem 0;
+}
+
+form input{
+    font-size: 1rem;
+    width: 100%;
+    padding: .6rem;
+    border: solid #20ac35;
+    border-radius: .3rem;
+}
+form button{
+    font-size: 1rem;
+    font-weight: 800;
+    border: none;
+    border-radius: .3rem;
+    background-image: linear-gradient(to right, #2caa3f, #0ea063);
+    padding: .8rem;
+    margin: 1rem 1rem;
+}
+form a{
+    font-size: 1rem;
+    font-weight: 800;
+    border: none;
+    border-radius: .3rem;
+    background-image: linear-gradient(to right, #2caa3f, #0ea063);
+    padding: .8rem;
+    margin: 1rem 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+#cadastro{
+    height: fit-content;
+}
+.cadastro{
+    padding: 30px;
+}

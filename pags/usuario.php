@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,7 +17,9 @@ session_start();
             echo $_SESSION['usuario'] . "<br>";
             echo $_SESSION['email'] . "<br>";
         ?>
-        <a href="../conexao/login.php" id="btnSair">Sair</a>
+        <form action="../conexao/sair.php" method="post">
+            <button type="submit">Sair</button>
+        </form>
     </div>
 </body>
 </html>
