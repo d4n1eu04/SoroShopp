@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -260,5 +261,11 @@ session_start();
         </nav>
     </footer>
 </body>
+<?php
+ if (isset($_SESSION['msgerro'])){
+ echo "<script type='text/javascript'>alert('{$_SESSION["msgerro"]}');</script>";
+ unset($_SESSION["msgerro"]);
+}
+?>
 <script src="js/carousel.js"></script>
 </html>

@@ -11,13 +11,12 @@
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
-    width: 550px;
-    height: 500px;
+    width: 650px;
+    height: fit-content;
     padding: 4rem 4rem;
     margin: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.604);
     border-radius: .3rem;
-    overflow: none;
 }
 .logincard form{
     height: 100%;
@@ -43,7 +42,6 @@ form label{
     font-weight: 500;
     margin: 1rem auto 1rem 0;
 }
-
 form input{
     font-size: 1rem;
     width: 100%;
