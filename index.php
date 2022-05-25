@@ -13,6 +13,7 @@ session_start();
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mainpag.css">
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
+    <script src="js/dropdown.js" defer></script>
 </head>
 <body>
     <header>
@@ -33,7 +34,7 @@ session_start();
                 <ul class="dropdown">
                     <li><a href="">Meus Anúncios</a></li>
                     <li><a href="">Conta</a></li>
-                    <li><a href="">Sair/Entrar</a></li>
+                    <li><a href="pags/login.php">Sair/Entrar</a></li>
                 </ul>
             </div>
         </div>
@@ -121,7 +122,7 @@ session_start();
                 </div>
                 <div class="produto">
                     <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
+                        <imRESPOSTA: Alternativa e) Todas as anterioresg src="img/products.png" alt="" style="width: 150px; height: 150px">
                     </picture>
                     <h1>Produto</h1>
                     <span><strong>VALOR</strong></span>
