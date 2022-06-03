@@ -1,0 +1,12 @@
+.foot{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+.sobre, .ajuda{
+    flex-flow: column nowrap;
+    margin: 5em;
+}
+.pi{
+    flex-flow: row nowrap;
+}

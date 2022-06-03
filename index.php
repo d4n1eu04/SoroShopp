@@ -10,10 +10,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoroShopp</title>
     <link rel="stylesheet" href="css/carousel.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/mainpag.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
     <script src="js/dropdown.js" defer></script>
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
     <header>
@@ -122,7 +124,7 @@ session_start();
                 </div>
                 <div class="produto">
                     <picture>
-                        <imRESPOSTA: Alternativa e) Todas as anterioresg src="img/products.png" alt="" style="width: 150px; height: 150px">
+                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
                     </picture>
                     <h1>Produto</h1>
                     <span><strong>VALOR</strong></span>
@@ -255,11 +257,27 @@ session_start();
         </section>
     </main>
     <footer>
-        <nav class="redessociais">
-            <a href="">Facebook</a>
-            <a href="">Instagram</a>
-            <a href="">Github</a>
-        </nav>
+        <div class="foot">
+            <div class="sobre">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="#">Sobre a DevMagic</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Ajude-nos</a></li>
+                </ul>
+            </div>
+            <div class="ajuda">
+                <h4>Manual do Usuário</h4>
+                <ul>
+                    <li>Login</li>
+                    <li>Minha Conta</li>
+                    <li>Manual do usuário</li>
+                </ul>
+            </div>
+        </div>
+        <div class="pi">
+            <p>2021/2022 - DevMagic</p>
+        </div>
     </footer>
 </body>
 <?php

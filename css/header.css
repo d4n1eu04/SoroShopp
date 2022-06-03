@@ -1,9 +1,9 @@
 header{
+    margin: 0px;
     display: flex;
     flex-flow: row wrap;
     padding: 1rem 1.5rem;
-    margin: 10px 5px;
-    border-radius: .25em;
+    border-radius: 0 0 .7em .7em;
     background-image: linear-gradient(160deg, #3BD952, #3db171 45%, #11c3a6 90%);
     justify-content: flex-end;
     align-items: center;
