@@ -11,11 +11,11 @@ session_start();
     <title>SoroShopp</title>
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/mainpag.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
     <script src="js/dropdown.js" defer></script>
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/mainpag.css">
 </head>
 <body>
     <header>
@@ -258,7 +258,7 @@ session_start();
     </main>
     <footer>
         <div class="foot">
-            <div class="sobre">
+            <div class="footlinks">
                 <h4>Sobre Nós</h4>
                 <ul>
                     <li><a href="#">Sobre a DevMagic</a></li>
@@ -266,17 +266,22 @@ session_start();
                     <li><a href="#">Ajude-nos</a></li>
                 </ul>
             </div>
-            <div class="ajuda">
-                <h4>Manual do Usuário</h4>
+            <div class="footlinks">
+            <h4>Usuário</h4>
                 <ul>
-                    <li>Login</li>
-                    <li>Minha Conta</li>
-                    <li>Manual do usuário</li>
+                    <li><a href="pags/login.php">Login</a></li>
+                    <li><a href="pags/usuario.php">Minha Conta</a></li>
+                    <li><a href="#">Manual do usuário</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="pi">
-            <p>2021/2022 - DevMagic</p>
+            <div class="footlinks">
+            <h4>Desenvolvido por</h4>
+                <ul>
+                    <li><a href="#"><i class="fa fa-github"></i> - Daniel Luís</a></li>
+                    <li><a href="#"><i class="fa fa-github"></i> - Antonio Marcos</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 </body>
