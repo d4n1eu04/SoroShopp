@@ -1,0 +1,36 @@
+.mainuser{
+    margin: 3em 2em;
+}
+.user{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2em 3em;
+    padding: 3em;
+    border-radius: .45em;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
+}
+.informacoes{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em .8em;
+}
+.nomeuser{
+    font-weight: 500;
+    margin: 0 1em;
+}
+.anuncios{
+    margin: 3em 2em;
+    flex-flow: row nowrap;
+}
+.cardanuncios{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    overflow-y: scroll;
+}

@@ -19,9 +19,9 @@ session_start();
 <body>
 <header>
         <div class="logo">
-            <a href="../index.php">Soro<span>Shopp</span></a>
+          Soro<span>Shopp</span>
         </div>
-        <div class="search">
+        <!--<div class="search">
             <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui">
         </div>
         <nav>
@@ -38,7 +38,7 @@ session_start();
                     <li><a href="pags/login.php">Sair/Entrar</a></li>
                 </ul>
             </div>
-        </div>
+        </div>-->
     </header>
     <main id="login">
         <div class="logincard">
