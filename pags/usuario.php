@@ -49,12 +49,99 @@ session_start();
                 <p class="nomeuser">Nome do Usuário</p>
             </div>
             <div class="sair">
-                <button>
-                    Sair
-                </button>
+                <a href="../pags/anunciar.php" class="btnuser">Anunciar</a>
+                <a href="../conexao/sair.php" class="btnuser">Sair</a>
             </div>
         </section>
-        <section class="anuncios">
+        <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria">Seus Anúncios</h1>
+            <section class="prodcategs flexrow">
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+            </section>
+        <!--<section class="anuncios">
             <div class="cardanuncios">
                 <div class="anuncio">
                     <img src="../img/products.png" alt="" style="height: 150px; width: 150px;">
@@ -75,7 +162,7 @@ session_start();
                     <h4>VALOR</h4>
                 </div>
             </div>
-        </section>
+        </section>-->
     </main>
     <footer>
         <div class="foot">
@@ -90,8 +177,8 @@ session_start();
             <div class="footlinks">
             <h4>Usuário</h4>
                 <ul>
-                    <li><a href="pags/login.php">Login</a></li>
-                    <li><a href="pags/usuario.php">Minha Conta</a></li>
+                    <li><a href="../pags/login.php">Login</a></li>
+                    <li><a href="../pags/usuario.php">Minha Conta</a></li>
                     <li><a href="#">Manual do usuário</a></li>
                 </ul>
             </div>
