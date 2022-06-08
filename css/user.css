@@ -34,3 +34,8 @@
     height: 60%;
     overflow-y: scroll;
 }
+.anuncio{
+    display: flex;
+    flex-flow: row nowrap;
+    
+}
