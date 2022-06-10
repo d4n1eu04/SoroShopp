@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+        <div class="logo" onclick="window.location.href = '../index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">

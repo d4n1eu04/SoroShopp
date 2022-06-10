@@ -1,0 +1,79 @@
+.visuproduto{
+    margin: 4em;
+    display: flex;
+}
+.fotosprod{
+    padding: 2em;
+    border-radius: .4em;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
+    width: 600px;
+    height: fit-content;
+}
+.img-principal{
+    display: flex;
+    justify-content: center;
+}
+.imgs-pq{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 1em 0;
+}
+.imgs-pq img{
+    cursor: pointer;
+    margin: 0 2em;
+}
+.infoprod{
+    display: flex;
+    justify-content: center;
+}
+.infos{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 1em;
+    padding: 3em 1em;
+}
+.infos > h2{
+    font-size: 3em;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 .2em 0;
+}
+.textos{
+    margin-top: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.infos p{
+    font-size: 1.05em;
+    text-align: justify;
+    margin: 0 0 1em 0;
+    max-width: 50%;
+}
+.infos h4{
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+}
+.cardvendedor{
+    display: flex;
+    flex-flow: column;
+    margin: 3em 0;
+    padding: 1em;
+    border-radius: .4em;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
+}
+.cardvendedor h3{
+    margin-top: .6em;
+    text-align: center;
+}
+.vendedor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.vendedor h2{
+    margin: 0 0 0 .75em;
+}

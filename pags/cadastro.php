@@ -18,7 +18,7 @@ session_start();
 </head>
 <body>
 <header>
-        <div class="logo">
+        <div class="logo" onclick="window.location.href = '../index.php'">
           Soro<span>Shopp</span>
         </div>
         <!--<div class="search">
@@ -42,17 +42,30 @@ session_start();
     </header>
     <main id="login" class="cadastro">
         <div id="cadastro" class="logincard">
-            <form action="../conexao/vaildacadastro.php" method="post">
+            <form action="../conexao/validacadastro.php" method="post">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" placeholder="Seu nome completo">
                 <label for="user">Nome de usuário</label>
                 <input type="text" name="user" placeholder="">
                 <label for="email">Email</label>
                 <input type="text" name="email" placeholder="Um email válido">
+                <label for="email">CPF</label>
+                <input type="text" name="cpf" placeholder="Seu CPF">
                 <label for="data_nasc">Data de Nascimento</label>
                 <input type="date" name="data_nasc">
-                <label for="local">Local</label>
+                <label for="local">CEP</label>
                 <input type="text" name="local">
+                <label for="rua">Rua</label>
+                <input name="rua" type="text" id="rua" size="60" /></label>
+                <label>Bairro</label>
+                <input name="bairro" type="text" id="bairro" size="40" /></label>
+                <label>Cidade
+                <input name="cidade" type="text" id="cidade" size="40" /></label>
+                <label for="tipo">Tipo de Usuário <i class="fa-solid fa-question" onclick="alert('Usuário: Apenas acessa e favorita produtos; Vendedor: Adicionalmente pode realizar anúncios')"></i></label>
+                <div class="flexrow">
+                    <input type="radio" name="tipo" value="0"><span style="margin: 0 .5em 0 .2em;">Usuário</span>
+                    <input type="radio" name="tipo" value="0"><span style="margin: 0 .5em 0 .2em;">Vendedor</span>
+                </div>
                 <label for="senha">Senha</label>
                 <input type="password" id="password" name="senha">
                 <label for="senha">Confirme a senha</label>

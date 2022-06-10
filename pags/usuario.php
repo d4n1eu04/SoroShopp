@@ -19,7 +19,7 @@ session_start();
 </head>
 <body>
 <header>
-        <div class="logo">
+        <div class="logo" onclick="window.location.href = '../index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">
@@ -55,6 +55,94 @@ session_start();
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Seus Anúncios</h1>
+            <section class="prodcategs flexrow">
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+                <div class="produto">
+                    <picture>
+                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                    </picture>
+                    <h1>Produto</h1>
+                    <span><strong>VALOR</strong></span>
+                </div>
+            </section>
+            <section class="galeriaprodutos flexcol" style="margin-top: 2em;">
+            <h1 class="nomecategoria">Favoritos <i class="fa-regular fa-heart"></i></h1>
             <section class="prodcategs flexrow">
                 <div class="produto">
                     <picture>
