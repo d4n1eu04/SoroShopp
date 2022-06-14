@@ -47,10 +47,12 @@
     align-items: center;
 }
 .infos p{
-    font-size: 1.05em;
+    font-size: 1.15em;
     text-align: justify;
-    margin: 0 0 1em 0;
-    max-width: 50%;
+    margin: 0 0 1.4em 0;
+    min-width: 60%;
+    max-width: 90%;
+    height: 200px;
 }
 .infos h4{
     font-size: 2em;
@@ -64,6 +66,8 @@
     padding: 1em;
     border-radius: .4em;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
+    height: 100%;
+    width: 80%;
 }
 .cardvendedor h3{
     margin-top: .6em;
@@ -75,5 +79,20 @@
     align-items: center;
 }
 .vendedor h2{
+    width: 100%;
     margin: 0 0 0 .75em;
+}
+
+.resultados{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 1.5em;
+    padding: 1em;
+    border-radius: .4em;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
+}
+.nomevend{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

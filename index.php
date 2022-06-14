@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('conexao/conexao.php')
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +24,13 @@ session_start();
             Soro<span>Shopp</span>
         </div>
         <div class="search">
-            <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui">
+            <form action="pags/pesquisa.php" method="get">
+                <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
+            </form>
         </div>
         <nav>
             <ul>
-                <li><a href="">Favoritos</a></li>
+                <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
         <div class="userDropdown">
@@ -47,15 +50,30 @@ session_start();
                 <aside class="menu_categorias">
                     <span class="title_categorias">Categorias</span>
                     <ul class="categorias">
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
-                        <li><a href="">Lorem</a></li>
+                        <?php
+                            $querycategoria = "SELECT * FROM categorias";
+                            $run = mysqli_query($connect, $querycategoria);
+
+                            if(mysqli_num_rows($run) > 0 ){
+                                foreach ($run as $categoria){
+                        ?>
+                        <li title="<?=$categoria['categoria']?>"><a href="pags/categoria.php?categoria=<?=$categoria['categoria']?>">
+                            <?php
+                                if(strlen($categoria['categoria']) > 15){
+                                    echo substr($categoria['categoria'], 0, 12) . '...';
+                                }else{
+                                    echo $categoria['categoria'];
+                                }
+                            ?>
+                        </a></li>
+                        <?php 
+                            }
+                        }else{
+                            ?>
+                                <li><a href="">Ocorreram problemas</a></li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </aside>
             </nav>
@@ -93,12 +111,12 @@ session_start();
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Categoria</h1>
-            <section class="prodcategs flexrow">
+            <section class="prodcategs flexrow" style="justify-content: space-evenly; height: 260px;">
                 <div class="produto">
                     <picture>
                         <img src="img/products.png" alt="" style="width: 150px; height: 150px">
                     </picture>
-                    <h1>Produto</h1>
+                    <h1>Galaxy S8 plus kkkkkkkkkkkkkkk</h1>
                     <span><strong>VALOR</strong></span>
                 </div>
                 <div class="produto">

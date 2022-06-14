@@ -42,44 +42,55 @@ session_start();
     </header>
     <main id="login" class="cadastro">
         <div id="cadastro" class="logincard">
+        <?php
+            if(isset($_SESSION['msgerro'])){
+                ?>
+                    <p>
+                        <?=$_SESSION['msgerro']?>
+                    </p>
+                <?php
+                unset($_SESSION['msgerro']);
+            }
+        ?>
             <form action="../conexao/validacadastro.php" method="post">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" placeholder="Seu nome completo">
+                <input type="text" name="nome" placeholder="Seu nome completo" required required>
                 <label for="user">Nome de usuário</label>
-                <input type="text" name="user" placeholder="">
+                <input type="text" name="user" placeholder="" required>
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Um email válido">
+                <input type="text" name="email" placeholder="Um email válido" required>
+                <label for="email">Telefone</label>
+                <input type="text" name="phone" placeholder="Um telefone válido" maxlength="15" required>
                 <label for="email">CPF</label>
-                <input type="text" name="cpf" placeholder="Seu CPF">
+                <input type="text" name="cpf" placeholder="Seu CPF" required>
                 <label for="data_nasc">Data de Nascimento</label>
-                <input type="date" name="data_nasc">
-                <label for="local">CEP</label>
-                <input type="text" name="local">
-                <label for="rua">Rua</label>
-                <input name="rua" type="text" id="rua" size="60" /></label>
-                <label>Bairro</label>
-                <input name="bairro" type="text" id="bairro" size="40" /></label>
-                <label>Cidade
-                <input name="cidade" type="text" id="cidade" size="40" /></label>
+                <input type="date" name="data_nasc" required>
+                <label>Cep: 
+                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                    onblur="pesquisacep(this.value);" required /></label><br />
+                <label>Rua:
+                <input name="rua" type="text" id="rua" size="60" /></label><br />
+                <label>Bairro:
+                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                <label>Cidade:
+                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                <label>Estado:
+                <input name="uf" type="text" id="uf" size="2" /></label><br />
+                <label>IBGE:
+                <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+                <label for="">Complemento</label>
+                <input type="text" name="comp" id="comp" required>
                 <label for="tipo">Tipo de Usuário <i class="fa-solid fa-question" onclick="alert('Usuário: Apenas acessa e favorita produtos; Vendedor: Adicionalmente pode realizar anúncios')"></i></label>
-                <div class="flexrow">
-                    <input type="radio" name="tipo" value="0"><span style="margin: 0 .5em 0 .2em;">Usuário</span>
-                    <input type="radio" name="tipo" value="0"><span style="margin: 0 .5em 0 .2em;">Vendedor</span>
-                </div>
+                <select name="tipo" id="tipo">
+                    <option value="1">Usuário</option>
+                    <option value="2">Vendedor</option>
+                </select>
                 <label for="senha">Senha</label>
-                <input type="password" id="password" name="senha">
+                <input type="password" id="password" name="senha" required>
                 <label for="senha">Confirme a senha</label>
-                <input type="password" id="confirm_password" name="senhaconf">
+                <input type="password" id="confirm_password" name="senhaconf" required>
                 <button type="submit" name="btnEnvia">Cadastrar</button>
             </form>
-            <p>
-                <?php
-                    if(isset($_SESSION['msgerro'])){
-                        echo $_SESSION['msgerro'];
-                        unset ($_SESSION['msgerro']);
-                    }
-                ?>
-            </p>
         </div>
     </main>
     <footer>
@@ -95,8 +106,8 @@ session_start();
             <div class="footlinks">
             <h4>Usuário</h4>
                 <ul>
-                    <li><a href="pags/login.php">Login</a></li>
-                    <li><a href="pags/usuario.php">Minha Conta</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="usuario.php">Minha Conta</a></li>
                     <li><a href="#">Manual do usuário</a></li>
                 </ul>
             </div>
@@ -111,5 +122,6 @@ session_start();
         </div>
     </footer>
     <script src="../js/validasenha.js"></script>
+    <script src="../js/validacep.js"></script>
 </body>
 </html>

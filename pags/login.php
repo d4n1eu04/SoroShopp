@@ -1,5 +1,9 @@
 <?php
 session_start();
+if($_SESSION['id'] && $_SESSION['nome'] && $_SESSION['usuario'] && $_SESSION['email']){
+    $_SESSION['msgerro1'] = "Você já está conectado!";
+    header("Location: ../pags/usuario.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -66,6 +70,10 @@ session_start();
                     if(isset($_SESSION['msgerro'])){
                         echo $_SESSION['msgerro'];
                         unset ($_SESSION['msgerro']);
+                    }
+                    if(isset($_SESSION['msgerro1'])){
+                        echo $_SESSION['msgerro1'];
+                        unset ($_SESSION['msgerro1']);
                     }
                 ?>
             </p>

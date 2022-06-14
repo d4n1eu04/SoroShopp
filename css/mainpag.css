@@ -110,6 +110,7 @@ ul.categorias > li > a:active{
     box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.389);
     transition: all 0.5s ease-in-out 0s;
     background-color: #fff;
+    height: 226px;
 }
 .produto:hover{
     cursor: pointer;
@@ -122,6 +123,7 @@ ul.categorias > li > a:active{
     font-size: 1rem;
     font-weight: 400;
     margin: .3rem 0;
+    text-align: center;
 }
 
 #btnSair{

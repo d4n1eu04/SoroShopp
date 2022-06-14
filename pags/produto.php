@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('../conexao/conexao.php')
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,19 +17,21 @@ session_start();
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/product.css">
-    <title>Produto</title>
+    <title>Anúncio - <?=$_GET['produto']?></title>
 </head>
 <body>
 <header>
-        <div class="logo" onclick="window.location.href = '../index.php'">
+        <div class="logo" onclick="window.location.href = 'index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">
-            <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui">
+            <form action="pesquisa.php" method="get">
+                <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
+            </form>
         </div>
         <nav>
             <ul>
-                <li><a href="">Favoritos</a></li>
+                <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
         <div class="userDropdown">
@@ -43,6 +46,12 @@ session_start();
         </div>
     </header>
     <main>
+        <?php
+            $produto_query = "SELECT * FROM anuncio INNER JOIN usuario on anuncio.iduser = usuario.iduser WHERE slug = '".$_GET['produto']."'";
+            $run_query = mysqli_query($connect, $produto_query);
+            if(mysqli_num_rows($run_query) > 0){
+                foreach($run_query as $anuncio){
+        ?>
         <section class="visuproduto">
             <div class="fotosprod">
                 <div class="img-principal">
@@ -57,24 +66,43 @@ session_start();
         <script src="../js/gallery.js"></script>
         <div class="infoprod">    
             <div class="infos">
-                <h5><a href="../index.php">Início</a> / <a href="">Categoria</a></h5>
-                <h2>Lorem, ipsum dolor.</h2>
+                <h5><a href="../index.php">Início</a> / <a href="">
+                    <?php
+                        $query = "SELECT categoria FROM categorias INNER JOIN anuncio on categorias.idcategoria = anuncio.idcategoria WHERE anuncio.idcategoria = '".$anuncio['idcategoria']."'";
+                        $querycateg = mysqli_query($connect, $query);
+                        if(mysqli_num_rows($querycateg) != 0){
+                            $rowcateg = mysqli_fetch_assoc($querycateg);
+                            echo $rowcateg['categoria'];
+                        }
+                    ?>
+                </a></h5>
+                <h2><?=$anuncio['titulo']?></h2>
                 <div class="textos">
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, aliquam! Illum corrupti asperiores cupiditate voluptates eligendi aspernatur officia rerum numquam! Molestiae natus et enim. Quibusdam qui inventore vero similique laudantium!
+                        <?php
+                            echo $anuncio['descricao'];
+                            ?><br><br>
+                        <span class="endereco" style="text-align: left;"><strong>Endereço: </strong><?=$anuncio['local']?></span>
                     </p>
-                    <h4>R$ 99,99</h4>
+                    <h4><?=$anuncio['valor']?></h4>
                 </div>
                 <div class="cardvendedor">
                     <div class="vendedor">
                         <img src="../img/user.png" alt="" style="height: 80px; width: 80px; border-radius: 50%;">
-                        <h2 class="nomevend">Nome do Vendedor</h2>
+                        <h2 class="nomevend"><?=$anuncio['nome']?> 
+                            <?php
+                                if($anuncio['anuncio.iduser'] == $_SESSION['id']){
+                                    ?>
+                                        <button class="btnuser" onclick="window.location.href = '../pags/editanuncio.php?produto=<?=$anuncio['slug']?>'">Editar Anúncio</button>
+                                    <?php
+                                }
+                            ?>
+                        </h2>
                     </div>
-                    <h3>(XX) XXXXX-XXXX</h3>
+                    <h3><?=$anuncio['telefone']?></h3>
                 </div>
             </div>
-            
-        </div>
+            </div>
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Mais da Categoria</h1>
@@ -154,6 +182,15 @@ session_start();
                     <span><strong>VALOR</strong></span>
                 </div>
             </section>
+        <?php
+                }
+            }else{
+                ?>
+                <h1 style="text-align: center; font-size:4em; margin:1em 0;">Produto não encontrado</h1>
+                <button onclick="history.back()">Voltar</button>
+                <?php
+            }
+        ?>
     </main>
     <footer>
         <div class="foot">

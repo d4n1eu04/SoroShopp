@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION['email']){
+    $_SESSION['msgerro'] = "Crie uma conta ou entre com a sua primeiro!";
+    header("Location: ../pags/login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,15 +23,17 @@ session_start();
 </head>
 <body>
 <header>
-        <div class="logo" onclick="window.location.href = '../index.php'">
+        <div class="logo" onclick="window.location.href = 'index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">
-            <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui">
+            <form action="pesquisa.php" method="get">
+                <input type="text" name="search" id="searchbar" placeholder="Procure o que precisa aqui" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
+            </form>
         </div>
         <nav>
             <ul>
-                <li><a href="">Favoritos</a></li>
+                <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
         <div class="userDropdown">
@@ -46,17 +52,47 @@ session_start();
             <div class="informacoes">
                 <!--<img src="" alt="">-->
                 <div class="fotouser" style="border: solid black; border-radius: 50%; height: 100px; width:100px"></div>
-                <p class="nomeuser">Nome do Usuário</p>
+                <p class="nomeuser"><?=$_SESSION['nome']?> <span class="username" style="color: #3BD952;"> (@<?=$_SESSION['usuario']?>)</span></p>
             </div>
             <div class="sair">
-                <a href="../pags/anunciar.php" class="btnuser">Anunciar</a>
+                <?php if($_SESSION['tipo_user'] > 1){
+                        ?>
+                            <a href="../pags/anunciar.php" class="btnuser">Anunciar</a>   
+                        <?php
+                    }
+                ?>
+                <a href="../pags/editauser.php" class="btnuser">Info. da Conta</a>
                 <a href="../conexao/sair.php" class="btnuser">Sair</a>
             </div>
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Seus Anúncios</h1>
-            <section class="prodcategs flexrow">
-                <div class="produto">
+            <section class="prodcategs flexrow" style="justify-content: flex-start;">
+                <?php
+                    include_once("../conexao/conexao.php");
+                    if(!empty($_SESSION['id']) && $_SESSION['nome'] && !empty($_SESSION['usuario']) && !empty($_SESSION['email'])){
+                        $query = "SELECT slug, username ,titulo, valor FROM anuncio INNER JOIN usuario ON anuncio.iduser = usuario.iduser WHERE usuario.iduser = '".$_SESSION['id']."'";
+                        $query_run = mysqli_query($connect, $query);
+                        if(mysqli_num_rows($query_run) > 0){
+                            foreach($query_run as $produto){
+                                ?>
+                                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$produto['slug']?>'">
+                                    <picture>
+                                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                                    </picture>
+                                    <h1><?=$produto['titulo']?></h1>
+                                    <span><strong><?=$produto['valor']?></strong></span>
+                                </div>
+                                <?php
+                            }
+                        }else{
+                            ?>
+                                <h1 style="text-align: center;">Você não tem anuncios ainda</h1>
+                            <?php
+                        }
+                    }
+                ?>
+                <!--<div class="produto">
                     <picture>
                         <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
                     </picture>
@@ -140,8 +176,8 @@ session_start();
                     <h1>Produto</h1>
                     <span><strong>VALOR</strong></span>
                 </div>
-            </section>
-            <section class="galeriaprodutos flexcol" style="margin-top: 2em;">
+            </section>-->
+            <section class="galeriaprodutos flexcol" id="favoritos" name="favoritos" style="margin-top: 2em;">
             <h1 class="nomecategoria">Favoritos <i class="fa-regular fa-heart"></i></h1>
             <section class="prodcategs flexrow">
                 <div class="produto">
@@ -281,4 +317,11 @@ session_start();
         </div>
     </footer>
 </body>
+<?php 
+if (isset($_SESSION['msgerro1'])){
+echo "<script type='text/javascript'>alert('{$_SESSION["msgerro1"]}');</script>";
+unset($_SESSION["msgerro1"]);}
+if (isset($_SESSION['msg'])){
+    echo "<script type='text/javascript'>alert('{$_SESSION["msg"]}');</script>";
+    unset($_SESSION["msg"]);}?>
 </html>
