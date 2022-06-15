@@ -4,6 +4,7 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
     $_SESSION['msgerro'] = "Crie uma conta ou entre com a sua primeiro!";
     header("Location: ../pags/login.php");
 }
+$username = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,10 +21,11 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/user.css">
+    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
 </head>
 <body>
 <header>
-        <div class="logo" onclick="window.location.href = 'index.php'">
+        <div class="logo" onclick="window.location.href = '../index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">
@@ -50,8 +52,8 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
     <main class="mainuser">
         <section class="user">
             <div class="informacoes">
-                <!--<img src="" alt="">-->
-                <div class="fotouser" style="border: solid black; border-radius: 50%; height: 100px; width:100px"></div>
+                <img src="../img/user.png" alt="" style="border-radius: 50%; height: 100px; width:100px;">
+                <!--<div class="fotouser" "></div>-->
                 <p class="nomeuser"><?=$_SESSION['nome']?> <span class="username" style="color: #3BD952;"> (@<?=$_SESSION['usuario']?>)</span></p>
             </div>
             <div class="sair">
@@ -61,7 +63,7 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
                         <?php
                     }
                 ?>
-                <a href="../pags/editauser.php" class="btnuser">Info. da Conta</a>
+                <a href="../pags/editauser.php?usuario=<?=$username?>" class="btnuser">Info. da Conta</a>
                 <a href="../conexao/sair.php" class="btnuser">Sair</a>
             </div>
         </section>
@@ -71,20 +73,28 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
                 <?php
                     include_once("../conexao/conexao.php");
                     if(!empty($_SESSION['id']) && $_SESSION['nome'] && !empty($_SESSION['usuario']) && !empty($_SESSION['email'])){
-                        $query = "SELECT slug, username ,titulo, valor FROM anuncio INNER JOIN usuario ON anuncio.iduser = usuario.iduser WHERE usuario.iduser = '".$_SESSION['id']."'";
+                        $query = "SELECT * FROM anuncio INNER JOIN usuario ON anuncio.iduser = usuario.iduser INNER JOIN imganuncio ON anuncio.idanuncio = imganuncio.idanuncio where anuncio.iduser = '".$_SESSION['id']."'";
                         $query_run = mysqli_query($connect, $query);
                         if(mysqli_num_rows($query_run) > 0){
                             foreach($query_run as $produto){
                                 ?>
                                 <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$produto['slug']?>'">
                                     <picture>
-                                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                                        <img src="../arquivos/<?=$produto['arquivo']?>" alt="" style="width: 175px; height: 175px">
                                     </picture>
-                                    <h1><?=$produto['titulo']?></h1>
-                                    <span><strong><?=$produto['valor']?></strong></span>
+                                    <h1>
+                                        <?php
+                                            if(strlen($produto['titulo']) > 21){
+                                                echo substr($produto['titulo'], 0, 18) . '...';
+                                            }else{
+                                                echo $produto['titulo'];
+                                            }
+                                        ?>
+                                    </h1>
+                                    <span><strong><?=$produto['valor']?> </strong></span>
                                 </div>
                                 <?php
-                            }
+                            }unset($produto);
                         }else{
                             ?>
                                 <h1 style="text-align: center;">Você não tem anuncios ainda</h1>
@@ -175,88 +185,11 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
                     </picture>
                     <h1>Produto</h1>
                     <span><strong>VALOR</strong></span>
-                </div>
-            </section>-->
+                </div>-->
+            </section>
             <section class="galeriaprodutos flexcol" id="favoritos" name="favoritos" style="margin-top: 2em;">
             <h1 class="nomecategoria">Favoritos <i class="fa-regular fa-heart"></i></h1>
-            <section class="prodcategs flexrow">
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
+            <section class="prodcategs flexrow" style="justify-content: flex-start;">
                 <div class="produto">
                     <picture>
                         <img src="../img/products.png" alt="" style="width: 150px; height: 150px">

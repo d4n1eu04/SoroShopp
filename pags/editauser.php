@@ -1,5 +1,22 @@
 <?php
 session_start();
+include_once('../conexao/conexao.php');
+
+if($_SESSION['usuario'] != $_GET['usuario']){
+    $_SESSION['msgerro1'] = 'Você não pode editar esse usuário';
+    header("Location: ../pags/usuario.php");
+}
+$username = $_SESSION['usuario'];
+$infos = mysqli_query($connect, "SELECT * from usuario WHERE username = '$username'");
+$rowinfos = mysqli_fetch_assoc($infos);
+
+$nome = $rowinfos['nome'];
+$user = $rowinfos['username'];
+$email = $rowinfos['email'];
+$telefone = $rowinfos['telefone'];
+$cpf = $rowinfos['cpf'];
+$data = $rowinfos['data']
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -7,7 +24,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se no SoroShopp</title>
+    <title>Alterar Usuário</title>
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -53,44 +70,29 @@ session_start();
                 unset($_SESSION['msgerro']);
             }
         ?>
-            <form action="../conexao/validacadastro.php" method="post">
+            <form action="../conexao/atualizauser.php?usuario=<?=$username?>" method="post">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" placeholder="Seu nome completo" required required>
+                <input type="text" name="nome" placeholder="Seu nome completo" value="<?=$nome?>" required>
                 <label for="user">Nome de usuário</label>
-                <input type="text" name="user" placeholder="" required>
+            <input type="text" name="user" placeholder=""style="opacity:.6;" value="<?=$user?>"disabled>
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Um email válido" required>
+                <input type="text" name="email" placeholder="Um email válido" value="<?=$email?> " style="opacity:.6;" disabled>
                 <label for="email">Telefone</label>
-                <input type="text" name="phone" placeholder="Um telefone válido" maxlength="15" required>
+                <input type="text" name="phone" placeholder="Um telefone válido" maxlength="15" value="<?=$telefone?>" required>
                 <label for="email">CPF</label>
-                <input type="text" name="cpf" placeholder="Seu CPF" required>
+                <input type="text" name="cpf" placeholder="Seu CPF" value="<?=$cpf?>" style="opacity:.6;" disabled>
                 <label for="data_nasc">Data de Nascimento</label>
-                <input type="date" name="data_nasc" required>
-                <label>Cep: 
-                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                    onblur="pesquisacep(this.value);" required /></label><br />
-                <label>Rua:
-                <input name="rua" type="text" id="rua" size="60" /></label><br />
-                <label>Bairro:
-                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-                <label>Cidade:
-                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-                <label>Estado:
-                <input name="uf" type="text" id="uf" size="2" /></label><br />
-                <label>IBGE:
-                <input name="ibge" type="text" id="ibge" size="8" /></label><br />
-                <label for="">Complemento</label>
-                <input type="text" name="comp" id="comp" required>
+                <input type="date" name="data_nasc"style="opacity:.6;" disabled>
                 <label for="tipo">Tipo de Usuário <i class="fa-solid fa-question" onclick="alert('Usuário: Apenas acessa e favorita produtos; Vendedor: Adicionalmente pode realizar anúncios')"></i></label>
                 <select name="tipo" id="tipo">
                     <option value="1">Usuário</option>
                     <option value="2">Vendedor</option>
                 </select>
                 <label for="senha">Senha</label>
-                <input type="password" id="password" name="senha" required>
+                <input type="password" id="password" name="senha" style="opacity:.6;" disabled>
                 <label for="senha">Confirme a senha</label>
-                <input type="password" id="confirm_password" name="senhaconf" required>
-                <button type="submit" name="btnEnvia">Cadastrar</button>
+                <input type="password" id="confirm_password" name="senhaconf" style="opacity:.6;" disabled>
+                <button type="submit" name="btnEnvia1">Editar Cadastro</button>
             </form>
         </div>
     </main>

@@ -19,6 +19,7 @@ if($_SESSION['id'] && $_SESSION['nome'] && $_SESSION['usuario'] && $_SESSION['em
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
     <script src="js/dropdown.js" defer></script>
+    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
 </head>
 <body>
 <header>

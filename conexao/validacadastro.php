@@ -69,16 +69,6 @@
                         break;
                 }
             }else{
-                echo $nome . "<br>";
-                echo $usuario . "<br>";
-                echo $data_nasc . "<br>";
-                echo $local . "<br>";
-                echo $tipo . "<br>";
-                echo $email . "<br>";
-                echo $senha . "<br>";
-                echo strlen($cpf) . "<br>";
-                echo $telefone . "<br>";
-
                 $result_cadastro = "INSERT INTO usuario (nome, username, data_nasc, local ,tipo_usuario, email, senha, cpf, telefone ,idimgperfil) VALUES ('$nome', '$usuario', '$data_nasc', '$local', $tipo, '$email', '$senha', $cpf, $telefone, 1)";
                 $query_usuario = mysqli_query($connect, $result_cadastro);
                 $_SESSION['msg'] = "Cadastrado com sucesso!";

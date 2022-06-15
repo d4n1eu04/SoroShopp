@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once("../conexao/conexao.php")
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/product.css">
     <title>Resultado de <?= $_GET['search']?></title>
+    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -34,7 +36,7 @@ session_start();
             </ul>
         </nav>
         <div class="userDropdown">
-            <button class="btnDrop">Login</button>
+            <button class="btnDrop">Menu</button>
             <div class="dropContent">
                 <ul class="dropdown">
                     <li><a href="">Meus Anúncios</a></li>
@@ -45,7 +47,7 @@ session_start();
         </div>
     </header>
     <main style="margin: 1.5em;">
-    <section class="galeriaprodutos flexcol">
+    <!--<section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" style="text-align: left;">Mais Populares</h1>
             <section class="prodcategs flexrow" style="justify-content: flex-start;">
                 <div class="produto">
@@ -70,24 +72,40 @@ session_start();
                     <span><strong>VALOR</strong></span>
                 </div>
             </section>
-        </section>
+        </section>-->
         <section>
-            <div class="resultados">
-                <div class="produtoresult" style="display: flex; flex-direction: row; align-items:center;">
-                    <img src="../img/products.png" alt="" style="width: 200px; height: 200px">
-                    <div class="sobreproduto" style="display:flex; flex-direction: column; margin-left:3em;">
-                        <h2>Nome Produto</h2>
-                        <p style="width: 100%; margin: 1em 0; text-align:justify;">descrição do produto Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis illo sequi officia soluta eum eaque labore eius expedita quisquam iste.</p>
-                        <span><strong>VALOR</strong></span>
-                    </div>
-                    <div class="sobreproduto" style="display:flex; flex-direction: column; margin-left:3em;">
-                        <h2>Vendedor</h2>
-                        <p style="width: 100%; margin: 1em 0; text-align:justify;">Bairro, Rua Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, praesentium?</p>
-                        <h2><strong>Telefone</strong></h2>
+            <div class="resultados"  style="margin: 5em 0;">
+                <?php
+                    $pesquisa = $_GET['search'];
+                    $resultados = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN usuario on anuncio.iduser = usuario.iduser INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE concat(titulo,descricao,nome,username,local) LIKE '%$pesquisa%'");
+
+                    if(mysqli_num_rows($resultados) != 0){
+                    foreach($resultados as $result){
+                        $slug = $result['slug'];
+                        ?>
+                        <div class="produtoresult" style="display: flex; flex-direction: row; align-items:center; cursor: pointer;" onclick="window.location.href = '../pags/produto.php?produto=<?=$slug?>'">
+                        <img src="../arquivos/<?=$result['arquivo']?>" alt="" style="width: 200px; height: 200px">
+                        <div class="sobreproduto" style="display:flex; flex-direction: column; margin-left:3em;">
+                        <h2><?=$result['titulo']?></h2>
+                        <p style="width: 100%; margin: 1em 0; text-align:justify;"><?=$result['descricao']?></p>
+                        <span><strong><?=$result['valor']?></strong></span>
+                        </div>
+                        <div class="sobreproduto" style="display:flex; flex-direction: column; margin-left:3em;">
+                        <h2><?=$result['nome']?></h2>
+                        <p style="width: 100%; margin: 1em 0; text-align:justify;"><?=$result['local']?></p>
+                        <h2><strong><?=$result['telefone']?></strong></h2>
                     </div>
                 </div>
             </div>
         </section>
+                        <?php
+                    }
+                    }else{
+                        ?>
+                            <h1 class="nomecategoria">Sem resultado para a busca</h1>
+                        <?php
+                    }
+                ?>
     </main>
     <footer>
         <div class="foot">

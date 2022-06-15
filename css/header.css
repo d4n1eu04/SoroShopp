@@ -92,12 +92,12 @@ button.btnDrop:hover{
     box-shadow: 0px 0px 8px black;
     transition: all .4s ease-in-out 0s;
 }
-button.btnDrop:focus{
+button.btnDrop.active{
     background-color: transparent;
     color: black;
     box-shadow: 0px 0px 10px black;
 }
-button.btnDrop:focus + .dropContent{
+button.btnDrop.active + .dropContent{
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);

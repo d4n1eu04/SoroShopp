@@ -17,6 +17,7 @@ include_once('conexao/conexao.php')
     <script src="js/dropdown.js" defer></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mainpag.css">
+    <link rel="shortcut icon" href="./img/Magigetlogo.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -57,7 +58,7 @@ include_once('conexao/conexao.php')
                             if(mysqli_num_rows($run) > 0 ){
                                 foreach ($run as $categoria){
                         ?>
-                        <li title="<?=$categoria['categoria']?>"><a href="pags/categoria.php?categoria=<?=$categoria['categoria']?>">
+                        <li title="<?=$categoria['categoria']?>"><a href="#<?=$categoria['categoria']?>">
                             <?php
                                 if(strlen($categoria['categoria']) > 15){
                                     echo substr($categoria['categoria'], 0, 12) . '...';
@@ -110,168 +111,334 @@ include_once('conexao/conexao.php')
                 </div>
         </section>
         <section class="galeriaprodutos flexcol">
-            <h1 class="nomecategoria">Categoria</h1>
-            <section class="prodcategs flexrow" style="justify-content: space-evenly; height: 260px;">
-                <div class="produto">
+            <h1 class="nomecategoria" id="Esportes">Esportes</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 1");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
-                    <h1>Galaxy S8 plus kkkkkkkkkkkkkkk</h1>
-                    <span><strong>VALOR</strong></span>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
                 </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
             </section>
-            <p><a href="#" class="vermais">Mais Anúncios</a></p>
-        </section>
-        <section class="galeriaprodutos flexcol">
-            <h1 class="nomecategoria">Categoria</h1>
-            <section class="prodcategs flexrow">
-                <div class="produto">
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Eletrônicos">Eletrônicos</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 2");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
                 </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
             </section>
-            <p><a href="#" class="vermais">Mais Anúncios</a></p>
-        </section>
-        <section class="galeriaprodutos flexcol">
-            <h1 class="nomecategoria">Categoria</h1>
-            <section class="prodcategs flexrow">
-                <div class="produto">
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Moda e Acessórios">Moda e Acessórios</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 3 ");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
                 </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria"style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
             </section>
-            <p><a href="#" class="vermais">Mais Anúncios</a></p>
-        </section>
-        <section class="galeriaprodutos flexcol">
-            <h1 class="nomecategoria">Categoria</h1>
-            <section class="prodcategs flexrow">
-                <div class="produto">
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Automóveis e Peças">Automóveis e Peças</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 4" );
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
                 </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
             </section>
-            <p><a href="#" class="vermais">Mais Anúncios</a></p>
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Brinquedos e Artigos Infantis">Brinquedos e Artigos Infantis</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 5");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                    <picture>
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                    </picture>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
+                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
+            </section>
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Imóveis">Imóveis</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 6");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                    <picture>
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                    </picture>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
+                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
+            </section>
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Comércio e Escritório">Comércio e Escritório</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 7");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                    <picture>
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                    </picture>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
+                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
+            </section>
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Pets">Pets</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 8 ");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                    <picture>
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                    </picture>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
+                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
+            </section>
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Casa e Móveis">Casa e Móveis</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 9");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                    <picture>
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                    </picture>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($$anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
+                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
+            </section>
+            <section class="galeriaprodutos flexcol">
+            <h1 class="nomecategoria" id="Diversos">Diversos</h1>
+            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <?php
+                $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 10");
+                if(mysqli_num_rows($categoria) != 0){
+                foreach($categoria as $anunciodacategoria){
+            ?>
+                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                    <picture>
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                    </picture>
+                    <h1>
+                        <?php
+                            if(strlen($anunciodacategoria['titulo']) > 21){
+                                echo substr($anunciodacategoria['titulo'], 0, 18) . '...';
+                            }else{
+                                echo $anunciodacategoria['titulo'];
+                            }
+                        ?>
+                    </h1>
+                    <span><strong><?=$anunciodacategoria['valor']?> </strong></span>
+                </div>
+                <?php
+                }unset($anunciodacategoria);
+            }else{
+                ?>
+                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                <?php
+
+            }
+            ?>
         </section>
     </main>
     <footer>
@@ -310,4 +477,5 @@ include_once('conexao/conexao.php')
 }
 ?>
 <script src="js/carousel.js"></script>
+<script src="js/dropdown.js"></script>
 </html>

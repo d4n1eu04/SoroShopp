@@ -1,12 +1,19 @@
 <?php
-    session_start();
-    if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION['email']){
-        $_SESSION['msgerro1'] = 'Você não está conectado';
-        header("Location: ../pags/login.php");
-    }else if($_SESSION['tipo_user'] <= 1){
-        $_SESSION['msgerro1'] = 'Você não pode anunciar, mude suas credenciais para vendedor';
-        header("Location: ../pags/usuario.php");
-    }
+session_start();
+include_once('../conexao/conexao.php');
+$produto_query = "SELECT * FROM anuncio INNER JOIN usuario on anuncio.iduser = usuario.iduser INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE slug = '".$_GET['anuncio']."' LIMIT 1";
+$run_query = mysqli_query($connect, $produto_query);
+$infos = mysqli_fetch_assoc($run_query);
+if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION['email']){
+    $_SESSION['msgerro1'] = 'Você não está conectado';
+    header("Location: ../pags/login.php");
+}else if($_SESSION['tipo_user'] <= 1){
+    $_SESSION['msgerro1'] = 'Você não pode anunciar nem gerenciar anúncios, mude suas credenciais para vendedor';
+    header("Location: ../pags/usuario.php");
+}else if($_SESSION['id'] != $infos['iduser']){
+    $_SESSION['msgerro1'] = 'Você não deveria estar aqui';
+    header("Location: ../pags/usuario.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,15 +21,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anunciar - SoroShopp</title>
+    <link rel="stylesheet" href="../css/carousel.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
+    <script src="js/dropdown.js" defer></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/mainpag.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/mainpag.css">
+    <title>Anúncio - <?=$infos['titulo']?></title>
     <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
 </head>
 <body>
 <header>
-        <div class="logo" onclick="window.location.href = '../index.php'">
+        <div class="logo" onclick="window.location.href = 'index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">
@@ -49,11 +65,11 @@
     <main id="login">
         <div class="logincard">
             <h1>Anunciar</h1>
-            <form method="post" action="../conexao/anuncio.php" enctype="multipart/form-data">
+            <form method="post" action="../conexao/atualizaanuncio.php?anuncio=<?=$infos['slug']?>" enctype="multipart/form-data">
                     <label for="title">Título do Produto</label>
-                    <input type="text" name="title" id="title" required>
+                    <input type="text" name="title" id="title" value="<?=$infos['titulo']?>" required>
                     <label for="description">Descrição</label>
-                    <textarea name="description" id="desc" cols="53" rows="5" style="border:solid #20ac35;border-radius: .3rem;resize:none; padding: .6rem; font-size: .9rem; width:100%" maxlength="220"></textarea>
+                    <textarea name="description" id="desc" cols="53" rows="5" style="border:solid #20ac35;border-radius: .3rem;resize:none; padding: .6rem; font-size: .9rem; width:100%" maxlength="220" require><?=$infos['descricao']?></textarea>
                     <label for="">Categoria</label>
                     <select name="category" id="categoria">
                         <option value="1">Esportes</option>
@@ -68,15 +84,16 @@
                         <option value="10">Diversos</option>
                     </select>
                     <label>Adicione 3 imagens:</label>
-                    <input type="file" name="image">
-                    <input type="file" name="image1">
-                    <input type="file" name="image2">
+                    <input type="file" name="image" value="<?=$infos['arquivo']?>">
+                    <input type="file" name="image1" value="<?=$infos['arquivo1']?>">
+                    <input type="file" name="image2" value="<?=$infos['arquivo2']?>">
                     <label for="value">Valor</label>
-                    <input type="text" name="value" id="value">
+                    <input type="text" name="value" id="value" value="<?=$infos['valor']?>">
                 <div class="botoes">
-                    <button type="submit" name="btnEnvia">Anunciar</button>
+                    <button type="submit" name="btnEnvia">Editar</button>
                 </div>
             </form>
+            <form action="../conexao/deleteanuncio.php?anuncio=<?=$infos['slug']?>" method="post"><button type="submit" name="btnApaga" style="color: white; background-image: linear-gradient(to right,#aa2c2c, #a00e0e);">Apagar</button></form>
             <p>
                 <span>
                     <?php
@@ -109,5 +126,4 @@ jQuery(function() {
 
 });
 </script>
-
 </html>
