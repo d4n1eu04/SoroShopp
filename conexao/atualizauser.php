@@ -5,7 +5,7 @@ include_once('conexao.php');
 if(isset($_POST['btnEnvia1'])){
 $usuario = $_GET['usuario'];
 $user_existe = mysqli_query($connect, "SELECT * FROM usuario WHERE username = '$usuario'");
-
+$iduser = $_SESSION['id'];
 if(mysqli_num_rows($user_existe) != 0){
 
     $nome = trim(ucwords($_POST['nome']));
@@ -23,7 +23,7 @@ if(mysqli_num_rows($user_existe) != 0){
             }
         $telefone = (int)str_replace(" ","",preg_replace('/[\'\\/^£$%&*()}{@#~?><>,|=_+¬\-]/', "",$telefone));
         
-        $update_user = mysqli_query($connect, "UPDATE usuario SET nome = '$nome', telefone = '$telefone', tipo_usuario = '$tipo'");
+        $update_user = mysqli_query($connect, "UPDATE usuario SET nome = '$nome', telefone = '$telefone', tipo_usuario = '$tipo' WHERE iduser = '$iduser'");
         if($update_user){
             $_SESSION['msg'] = 'Alterado com sucesso';
             $_SESSION['nome'] = $nome;

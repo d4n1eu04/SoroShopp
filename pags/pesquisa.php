@@ -22,7 +22,7 @@ include_once("../conexao/conexao.php")
 </head>
 <body>
     <header>
-        <div class="logo" onclick="window.location.href = 'index.php'">
+        <div class="logo" onclick="window.location.href = '../index.php'">
             Soro<span>Shopp</span>
         </div>
         <div class="search">

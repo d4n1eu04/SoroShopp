@@ -118,7 +118,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -151,7 +151,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -184,7 +184,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -217,7 +217,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -250,7 +250,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -283,7 +283,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -316,7 +316,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -349,7 +349,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -382,7 +382,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
@@ -415,7 +415,7 @@ include_once('conexao/conexao.php')
                 if(mysqli_num_rows($categoria) != 0){
                 foreach($categoria as $anunciodacategoria){
             ?>
-                <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
+                <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
                         <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
                     </picture>
