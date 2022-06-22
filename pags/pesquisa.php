@@ -18,7 +18,7 @@ include_once("../conexao/conexao.php")
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/product.css">
     <title>Resultado de <?= $_GET['search']?></title>
-    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -83,21 +83,19 @@ include_once("../conexao/conexao.php")
                     foreach($resultados as $result){
                         $slug = $result['slug'];
                         ?>
-                        <div class="produtoresult" style="display: flex; flex-direction: row; align-items:center; cursor: pointer;" onclick="window.location.href = '../pags/produto.php?produto=<?=$slug?>'">
+                        <div class="produtoresult" onclick="window.location.href = '../pags/produto.php?produto=<?=$slug?>'">
                         <img src="../arquivos/<?=$result['arquivo']?>" alt="" style="width: 200px; height: 200px">
-                        <div class="sobreproduto" style="display:flex; flex-direction: column; margin-left:3em;">
+                        <div class="sobreproduto">
                         <h2><?=$result['titulo']?></h2>
                         <p style="width: 100%; margin: 1em 0; text-align:justify;"><?=$result['descricao']?></p>
                         <span><strong><?=$result['valor']?></strong></span>
                         </div>
-                        <div class="sobreproduto" style="display:flex; flex-direction: column; margin-left:3em;">
+                        <div class="sobreproduto">
                         <h2><?=$result['nome']?></h2>
                         <p style="width: 100%; margin: 1em 0; text-align:justify;"><?=$result['local']?></p>
                         <h2><strong><?=$result['telefone']?></strong></h2>
                     </div>
                 </div>
-            </div>
-        </section>
                         <?php
                     }
                     }else{
@@ -106,6 +104,8 @@ include_once("../conexao/conexao.php")
                         <?php
                     }
                 ?>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="foot">

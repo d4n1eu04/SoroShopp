@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once('../conexao/conexao.php');
-$produto_query = "SELECT * FROM anuncio INNER JOIN usuario on anuncio.iduser = usuario.iduser INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE slug = '".$_GET['produto']."' LIMIT 1";
+$produto_query = "SELECT * FROM anuncio INNER JOIN usuario on anuncio.iduser = usuario.iduser INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio INNER JOIN categorias on anuncio.idcategoria = categorias.idcategoria WHERE slug = '".$_GET['produto']."' LIMIT 1";
 $run_query = mysqli_query($connect, $produto_query);
 $infos = mysqli_fetch_assoc($run_query);
 $slug = $_GET['produto'];
@@ -22,7 +22,7 @@ $slug = $_GET['produto'];
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/product.css">
     <title>Anúncio - <?=$infos['titulo']?></title>
-    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -58,66 +58,46 @@ $slug = $_GET['produto'];
         <section class="visuproduto">
             <div class="fotosprod">
                 <div class="img-principal">
-                    <img src="../arquivos/<?=$anuncio['arquivo']?>" id="imagem-principal" alt="" style="height: 400px; width: 100%">
+                    <img src="../arquivos/<?=$anuncio['arquivo']?>" id="imagem-principal" alt="" >
                 </div>
                 <div class="imgs-pq">
-                    <img src="../arquivos/<?=$anuncio['arquivo']?>" alt="" style="height: 115px; width: 170px" onclick="trocaImg(this)">
-                    <img src="../arquivos/<?=$anuncio['arquivo1']?>" alt="" style="height: 115px; width: 170px" onclick="trocaImg(this)">
-                    <img src="../arquivos/<?=$anuncio['arquivo2']?>" alt="" style="height: 115px; width: 170px" onclick="trocaImg(this)">
+                    <img src="../arquivos/<?=$anuncio['arquivo']?>" class="imgpq" alt="" onclick="trocaImg(this)">
+                    <img src="../arquivos/<?=$anuncio['arquivo1']?>" class="imgpq" alt="" onclick="trocaImg(this)">
+                    <img src="../arquivos/<?=$anuncio['arquivo2']?>" class="imgpq" alt="" onclick="trocaImg(this)">
                 </div>
+            </div>
+            <div class="infoproduto">
+                <span class="rotas"><a href="../index.php">Início</a>/<a href="../index.php#<?=$anuncio['categoria']?>"><?=$anuncio['categoria']?></a></span>
+                <h1 class="titulo"><?=$anuncio['titulo']?></h1>
+                <p class="descricao">
+                    <?=$anuncio['descricao']?>
+                </p>
+                <span class="valor"><strong><?=$anuncio['valor']?></strong></span>
+                <div class="cardvendedor">
+                    <div class="nomefoto">
+                        <img src="../img/user.png" alt="" style="height: 75px; width: 75px; border-radius:50%;">
+                        <h3 class="nome"><?=$anuncio['nome']?></h3>
+                    </div>
+                    <div class="telefoneedita">
+                        <span class="telefone"><?=$anuncio['telefone']?></span>
+                        <?php
+                            if($_SESSION['id'] == $anuncio['iduser']){
+                                ?>
+                                    <a href="../pags/editaranuncio.php?anuncio=<?=$anuncio['slug']?>" class="btnuser">Editar</a>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+                <p class="endereco">
+                    <strong>Endereço</strong>: <?=$anuncio['local']?>
+                </p>
             </div>
         <script src="../js/gallery.js"></script>
-        <div class="infoprod">    
-            <div class="infos">
-                <h5><a href="../index.php">Início</a> / <a href="">
-                    <?php
-                        $query = "SELECT categoria FROM categorias INNER JOIN anuncio on categorias.idcategoria = anuncio.idcategoria WHERE anuncio.idcategoria = '".$anuncio['idcategoria']."'";
-                        $querycateg = mysqli_query($connect, $query);
-                        if(mysqli_num_rows($querycateg) != 0){
-                            $rowcateg = mysqli_fetch_assoc($querycateg);
-                            echo $rowcateg['categoria'];
-                        }
-                    ?>
-                </a></h5>
-                <h2><?=$anuncio['titulo']?></h2>
-                <div class="textos">
-                    <p>
-                        <?php
-                            echo $anuncio['descricao'];
-                            ?><br><br>
-                            <span class="endereco" style="text-align: left; font-size: .9em; font-wheight: 400"><strong>Endereço: </strong><?=$anuncio['local']?></span>
-                    </p>
-                    <h4>Preço: <?=$anuncio['valor']?></h4>
-                </div>
-                <div class="cardvendedor" style="overflow: none;">
-                    <div class="vendedor">
-                        <img src="../img/user.png" alt="" style="height: 80px; width: 80px; border-radius: 50%;">
-                        <h2 class="nomevend" title="<?=$anuncio['nome']?>">
-                            <?php
-                                if(strlen($anuncio['nome']) > 15){
-                                    echo substr($anuncio['nome'], 0, 12) . '...';
-                                }else{
-                                    echo $anuncio['nome'];
-                                }
-                            ?> 
-                            <?php
-                           /* echo '<br>'.$_SESSION['id'];*/
-                                if($anuncio['iduser'] == $_SESSION['id'] && $anuncio['tipo_usuario'] == $_SESSION['tipo_user']){
-                                    ?>
-                                        <button class="btnuser" onclick="window.location.href = '../pags/editaranuncio.php?anuncio=<?=$anuncio['slug']?>'">Editar Anúncio</button>
-                                    <?php
-                                }
-                            ?>
-                        </h2>
-                    </div>
-                    <h3>Contato: <?=$anuncio['telefone']?></h3>
-                </div>
-            </div>
-            </div>
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Mais da Categoria</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = '".$anuncio['idcategoria']."'"."AND slug != '$slug' LIMIT 6");
                 if(mysqli_num_rows($categoria) != 0){
@@ -144,14 +124,13 @@ $slug = $_GET['produto'];
                 ?>
                     <h1 style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
                 <?php
-
             }
             }
             ?>
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Mais do vendedor</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $vendedor = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE iduser = '".$anuncio['iduser']."'"."AND slug != '$slug' LIMIT 6");
                 if(mysqli_num_rows($vendedor) != 0){
@@ -222,10 +201,10 @@ $slug = $_GET['produto'];
 </body>
 <?php
 if (isset($_SESSION['msgerro1'])){
-echo "<script type='text/javascript'>alert('{$_SESSION["msgerro1"]}');</script>";
+echo "<script type='text/javascript' defer>alert('{$_SESSION["msgerro1"]}');</script>";
 unset($_SESSION["msgerro1"]);}
 if (isset($_SESSION['msg'])){
-    echo "<script type='text/javascript'>alert('{$_SESSION["msg"]}');</script>";
+    echo "<script type='text/javascript' defer>alert('{$_SESSION["msg"]}');</script>";
     unset($_SESSION["msg"]);}
 ?>
 </html>

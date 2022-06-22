@@ -34,7 +34,7 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <title>Anúncio - <?=$infos['titulo']?></title>
-    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -72,6 +72,7 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
                     <textarea name="description" id="desc" cols="53" rows="5" style="border:solid #20ac35;border-radius: .3rem;resize:none; padding: .6rem; font-size: .9rem; width:100%" maxlength="220" require><?=$infos['descricao']?></textarea>
                     <label for="">Categoria</label>
                     <select name="category" id="categoria">
+                        <option value="">--Selecione a Categoria</option>
                         <option value="1">Esportes</option>
                         <option value="2">Eletrônicos</option>
                         <option value="3">Moda e Acessórios</option>
@@ -83,17 +84,17 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
                         <option value="9">Casa e Móveis</option>
                         <option value="10">Diversos</option>
                     </select>
-                    <label>Adicione 3 imagens:</label>
-                    <input type="file" name="image" value="<?=$infos['arquivo']?>">
-                    <input type="file" name="image1" value="<?=$infos['arquivo1']?>">
-                    <input type="file" name="image2" value="<?=$infos['arquivo2']?>">
+                    <label>Imagens:</label>
+                    <input type="file" name="image">
+                    <input type="file" name="image1">
+                    <input type="file" name="image2">
                     <label for="value">Valor</label>
                     <input type="text" name="value" id="value" value="<?=$infos['valor']?>">
                 <div class="botoes">
                     <button type="submit" name="btnEnvia">Editar</button>
                 </div>
             </form>
-            <form action="../conexao/deleteanuncio.php?anuncio=<?=$infos['slug']?>" method="post"><button type="submit" name="btnApaga" style="color: white; background-image: linear-gradient(to right,#aa2c2c, #a00e0e);">Apagar</button></form>
+            <form action="../conexao/deleteanuncio.php?anuncio=<?=$infos['slug']?>" method="post"><button type="submit" name="btnApaga" onclick="confirm('Tem certeza? Seu anúncio sera excluído permanentemente')" style="color: white; background-image: linear-gradient(to right,#aa2c2c, #a00e0e);">Apagar</button></form>
             <p>
                 <span>
                     <?php

@@ -5,7 +5,7 @@ header{
     padding: 1rem 1.5rem;
     border-radius: 0 0 .7em .7em;
     background-image: linear-gradient(160deg, #3BD952, #3db171 45%, #11c3a6 90%);
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.491); 
 }
@@ -25,7 +25,10 @@ div.logo:hover{
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.705);
 }
 div.search{
-    margin: 0px 20px;
+    margin: 10px 20px;
+    max-width: 100%;
+    width: 25rem;
+    
 }
 input#searchbar{
     font-size: .9em;
@@ -34,7 +37,7 @@ input#searchbar{
     border-radius: .3rem;
     background-color: #ffffff;
     padding: .6em;
-    width: 24rem;
+    width: 100%;
     transition: all .4s ease-in-out 0s;
 }
 input#searchbar:hover{

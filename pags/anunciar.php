@@ -15,10 +15,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anunciar - SoroShopp</title>
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/mainpag.css">
-    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -95,6 +96,34 @@
             </p>
         </div>
     </main>
+    <footer>
+        <div class="foot">
+            <div class="footlinks">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="#">Sobre a DevMagic</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Ajude-nos</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+            <h4>Usuário</h4>
+                <ul>
+                    <li><a href="../pags/login.php">Login</a></li>
+                    <li><a href="../pags/usuario.php">Minha Conta</a></li>
+                    <li><a href="#">Manual do usuário</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+            <h4>Desenvolvido por</h4>
+                <ul>
+                    <li><a href="#"><i class="fa fa-github"></i> - Daniel Luís</a></li>
+                    <li><a href="#"><i class="fa fa-github"></i> - Antonio Marcos</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js" type="text/javascript"></script>

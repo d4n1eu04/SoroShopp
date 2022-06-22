@@ -71,8 +71,13 @@
             }else{
                 $result_cadastro = "INSERT INTO usuario (nome, username, data_nasc, local ,tipo_usuario, email, senha, cpf, telefone ,idimgperfil) VALUES ('$nome', '$usuario', '$data_nasc', '$local', $tipo, '$email', '$senha', $cpf, $telefone, 1)";
                 $query_usuario = mysqli_query($connect, $result_cadastro);
-                $_SESSION['msg'] = "Cadastrado com sucesso!";
-                header("Location: ../pags/login.php");
+                if($query_usuario){
+                    $_SESSION['msg'] = "Cadastrado com sucesso!";
+                    header("Location: ../pags/login.php");
+                }else{
+                    $_SESSION['msgerro'] = "Problemas com o banco de dados, tente novamente!";
+                    header("Location: ../pags/cadastro.php");
+                }
             }
         }else{
             $_SESSION['msgerro'] = "Insira credenciais válidas";

@@ -1,18 +1,24 @@
 .visuproduto{
     margin: 2em;
     display: flex;
+    flex-flow: row nowrap;
 }
 .fotosprod{
     padding: 2em;
     border-radius: .4em;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
-    width: 800px;
+    width: 50%;
     height: fit-content;
+}
+.imgpq{
+    height: 115px; width: 170px;
 }
 .img-principal{
     display: flex;
     justify-content: center;
+    min-height: 250px; height: 400px; width: 100%; padding: 1em; border-radius: .4em;
 }
+
 .imgs-pq{
     display: flex;
     justify-content: center;
@@ -28,77 +34,120 @@
     opacity: 1;
     transition: all .5s ease-in-out 0s;
 }
-.infoprod{
+.infoproduto{
     display: flex;
-    justify-content: center;
-}
-.infos{
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
+    flex-flow: column nowrap;
     align-items: center;
-    margin: 0 1em;
-    padding: 3em 1em;
+    justify-content: space-evenly;
+    width: 50%;
+    min-height: 630px;
+    height: 100%;
+    padding: 2em;
 }
-.infos > h2{
-    font-size: 3em;
-    font-weight: 800;
-    text-align: center;
-    margin: .5em 0 .2em 0;
-}
-.textos{
-    margin-top: 1.2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.infos p{
-    font-size: 1.25em;
-    text-align: justify;
-    margin: 0 0 1.4em 0;
-    min-width: 60%;
-    max-width: 90%;
-    height: 200px;
-}
-.infos h4{
+.titulo{
+    margin-top: .5em;
     font-size: 2em;
-    font-weight: 900;
-    text-align: center;
+    font-weight: 700;
+}
+.descricao{
+    max-height: 250px;
+    font-size: 1.1em;
+    overflow: scroll;
+}
+.valor{
+    margin: 1em 0;
+    font-size: 1.8em;
+    font-weight: 800;
 }
 .cardvendedor{
     display: flex;
-    flex-flow: column;
-    margin: 3em 0;
+    flex-flow: column nowrap;
     padding: 1em;
+    margin: .5em;
     border-radius: .4em;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
-    height: 100%;
-    width: 80%;
+    width: 60%;
 }
-.cardvendedor h3{
-    margin-top: .6em;
-    text-align: center;
-}
-.vendedor{
+.nomefoto{
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
     align-items: center;
 }
-.vendedor h2{
-    width: 100%;
-    margin: 0 0 0 .75em;
+.telefoneedita{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
 }
-
+.telefone{
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 600;
+}
+.telefoneedita a{
+    margin: 0 0 0 auto;
+}
+.nome{
+    margin-left: .4em;
+}
 .resultados{
     display: flex;
     flex-flow: column nowrap;
     margin: 1.5em;
-    padding: 1em;
+    padding: 2em;
     border-radius: .4em;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.450);
+    align-items: center;
 }
 .nomevend{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.produtoresult{
+    display: flex; 
+    flex-flow: row nowrap; 
+    align-items:flex-start; 
+    cursor: pointer;
+    margin-bottom: 1.5em;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius:.4em;
+    padding: .5em;
+}
+.sobreproduto{
+    display:flex; flex-direction: column; margin-left:3em;
+}
+@media (max-width: 1024px) {
+    .visuproduto{
+        flex-wrap: wrap;
+    }
+    .fotosprod{
+        width: 100%;
+    }
+    .infoproduto{
+        width: 100%;
+    }
+    .imgpq{
+        height: 100px; width: 150px; max-width: 150px;
+        max-height: 150px;
+    }
+    .img-principal{
+        max-height: 360px;
+    }
+    .cardvendedor{
+        width: 100%;
+    }
+}
+@media (max-width: 728px){
+    .produtoresult{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .sobreproduto{
+        margin: 0;
+    }
+    .resultados{
+        margin: 0;
+    }
 }

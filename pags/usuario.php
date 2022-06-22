@@ -21,7 +21,7 @@ $username = $_SESSION['usuario'];
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/user.css">
-    <link rel="shortcut icon" href="../img/Magigetlogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -52,11 +52,12 @@ $username = $_SESSION['usuario'];
     <main class="mainuser">
         <section class="user">
             <div class="informacoes">
-                <img src="../img/user.png" alt="" style="border-radius: 50%; height: 100px; width:100px;">
-                <!--<div class="fotouser" "></div>-->
-                <p class="nomeuser"><?=$_SESSION['nome']?> <span class="username" style="color: #3BD952;"> (@<?=$_SESSION['usuario']?>)</span></p>
-            </div>
-            <div class="sair">
+                <div class="nomeduser">
+                    <img src="../img/user.png" alt="" style="border-radius: 50%; height: 100px; width:100px;">
+                    <!--<div class="fotouser" "></div>-->
+                    <p class="nomeuser"><?=$_SESSION['nome']?> <span class="username" style="color: #3BD952;"> (@<?=$_SESSION['usuario']?>)</span></p>
+                </div>
+                <div class="sair">
                 <?php if($_SESSION['tipo_user'] > 1){
                         ?>
                             <a href="../pags/anunciar.php" class="btnuser">Anunciar</a>   
@@ -66,10 +67,12 @@ $username = $_SESSION['usuario'];
                 <a href="../pags/editauser.php?usuario=<?=$username?>" class="btnuser">Info. da Conta</a>
                 <a href="../conexao/sair.php" class="btnuser">Sair</a>
             </div>
+            </div>
+            
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria">Seus Anúncios</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start;">
+            <section class="prodcategs flexrow" style="justify-content: center;">
                 <?php
                     include_once("../conexao/conexao.php");
                     if(!empty($_SESSION['id']) && $_SESSION['nome'] && !empty($_SESSION['usuario']) && !empty($_SESSION['email'])){
@@ -102,94 +105,11 @@ $username = $_SESSION['usuario'];
                         }
                     }
                 ?>
-                <!--<div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>
-                <div class="produto">
-                    <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
-                    </picture>
-                    <h1>Produto</h1>
-                    <span><strong>VALOR</strong></span>
-                </div>-->
+                
             </section>
             <section class="galeriaprodutos flexcol" id="favoritos" name="favoritos" style="margin-top: 2em;">
             <h1 class="nomecategoria">Favoritos <i class="fa-regular fa-heart"></i></h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start;">
+            <section class="prodcategs flexrow" style="justify-content: center;">
                 <div class="produto">
                     <picture>
                         <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
@@ -198,28 +118,6 @@ $username = $_SESSION['usuario'];
                     <span><strong>VALOR</strong></span>
                 </div>
             </section>
-        <!--<section class="anuncios">
-            <div class="cardanuncios">
-                <div class="anuncio">
-                    <img src="../img/products.png" alt="" style="height: 150px; width: 150px;">
-                    <h4>Produto</h4>
-                    <p>descrição</p>
-                    <h4>VALOR</h4>
-                </div>
-                <div class="anuncio">
-                    <img src="../img/products.png" alt="" style="height: 150px; width: 150px;">
-                    <h4>Produto</h4>
-                    <p>descrição</p>
-                    <h4>VALOR</h4>
-                </div>
-                <div class="anuncio">
-                    <img src="../img/products.png" alt="" style="height: 150px; width: 150px;">
-                    <h4>Produto</h4>
-                    <p>descrição</p>
-                    <h4>VALOR</h4>
-                </div>
-            </div>
-        </section>-->
     </main>
     <footer>
         <div class="foot">
@@ -252,9 +150,9 @@ $username = $_SESSION['usuario'];
 </body>
 <?php 
 if (isset($_SESSION['msgerro1'])){
-echo "<script type='text/javascript'>alert('{$_SESSION["msgerro1"]}');</script>";
+echo "<script type='text/javascript' defer>alert('{$_SESSION["msgerro1"]}');</script>";
 unset($_SESSION["msgerro1"]);}
 if (isset($_SESSION['msg'])){
-    echo "<script type='text/javascript'>alert('{$_SESSION["msg"]}');</script>";
+    echo "<script type='text/javascript' defer>alert('{$_SESSION["msg"]}');</script>";
     unset($_SESSION["msg"]);}?>
 </html>

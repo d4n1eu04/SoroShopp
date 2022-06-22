@@ -17,6 +17,11 @@ footer{
     font-weight: 400;
     font-size: 1em;
 }
+@media (max-width: 810px){
+    .footlinks{
+        margin: 1em 3em; 
+    }
+}
 .footlinks h4{
     color: #000;
     font-weight: 800;

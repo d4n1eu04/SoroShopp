@@ -17,7 +17,7 @@ include_once('conexao/conexao.php')
     <script src="js/dropdown.js" defer></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mainpag.css">
-    <link rel="shortcut icon" href="./img/Magigetlogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -47,55 +47,53 @@ include_once('conexao/conexao.php')
     </header>
     <main class="container_main">
         <section class="flexrow categcarrossel">
-            <nav class="catigurias">
-                <aside class="menu_categorias">
-                    <span class="title_categorias">Categorias</span>
-                    <ul class="categorias">
-                        <?php
-                            $querycategoria = "SELECT * FROM categorias";
-                            $run = mysqli_query($connect, $querycategoria);
+            <aside class="menu_categorias">
+                <span class="title_categorias">Categorias</span>
+                <ul class="categorias">
+                    <?php
+                        $querycategoria = "SELECT * FROM categorias";
+                        $run = mysqli_query($connect, $querycategoria);
 
-                            if(mysqli_num_rows($run) > 0 ){
-                                foreach ($run as $categoria){
-                        ?>
-                        <li title="<?=$categoria['categoria']?>"><a href="#<?=$categoria['categoria']?>">
-                            <?php
-                                if(strlen($categoria['categoria']) > 15){
-                                    echo substr($categoria['categoria'], 0, 12) . '...';
-                                }else{
-                                    echo $categoria['categoria'];
-                                }
-                            ?>
-                        </a></li>
-                        <?php 
+                        if(mysqli_num_rows($run) > 0 ){
+                            foreach ($run as $categoria){
+                    ?>
+                    <li title="<?=$categoria['categoria']?>"><a href="#<?=$categoria['categoria']?>">
+                        <?php
+                            if(strlen($categoria['categoria']) > 15){
+                                echo substr($categoria['categoria'], 0, 12) . '...';
+                            }else{
+                                echo $categoria['categoria'];
                             }
-                        }else{
-                            ?>
-                                <li><a href="">Ocorreram problemas</a></li>
-                            <?php
-                        }
                         ?>
-                    </ul>
-                </aside>
-            </nav>
+                    </a></li>
+                    <?php 
+                        }
+                    }else{
+                        ?>
+                            <li><a href="">Ocorreram problemas</a></li>
+                        <?php
+                    }
+                    ?>
+                </ul>
+            </aside>
             <div class="slidecarrossel">
                 <h1>Principais Ofertas</h1>
                 <div class="carousel">
                     <div data-js="carousel__item" class="carousel__item carousel__item--visible">
                         <picture>
-                              <img src="img/produto1.jpg" style="height: 360px; width: 800px;"/>
+                              <img src="img/produto1.jpg"/>
                         </picture>
                     </div>
             
                     <div data-js="carousel__item" class="carousel__item">
                         <picture>
-                            <img src="img/produto2.jpg" style="height: 360px; width: 800px;"/>
+                            <img src="img/produto2.jpg"/>
                         </picture>
                     </div>
                     
                     <div data-js="carousel__item" class="carousel__item">
                         <picture>
-                            <img src="img/produto3.jpg" style="height: 360px; width: 800px;"/>
+                            <img src="img/produto3.jpg"/>
                         </picture>
                     </div>
 
@@ -112,7 +110,7 @@ include_once('conexao/conexao.php')
         </section>
         <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Esportes">Esportes</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: 1em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 1");
                 if(mysqli_num_rows($categoria) != 0){
@@ -137,7 +135,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -145,7 +143,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Eletrônicos">Eletrônicos</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 2");
                 if(mysqli_num_rows($categoria) != 0){
@@ -170,7 +168,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -178,7 +176,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Moda e Acessórios">Moda e Acessórios</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 3 ");
                 if(mysqli_num_rows($categoria) != 0){
@@ -203,7 +201,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria"style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -211,7 +209,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Automóveis e Peças">Automóveis e Peças</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 4" );
                 if(mysqli_num_rows($categoria) != 0){
@@ -236,7 +234,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -244,7 +242,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Brinquedos e Artigos Infantis">Brinquedos e Artigos Infantis</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 5");
                 if(mysqli_num_rows($categoria) != 0){
@@ -269,7 +267,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -277,7 +275,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Imóveis">Imóveis</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 6");
                 if(mysqli_num_rows($categoria) != 0){
@@ -302,7 +300,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -310,7 +308,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Comércio e Escritório">Comércio e Escritório</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 7");
                 if(mysqli_num_rows($categoria) != 0){
@@ -335,7 +333,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -343,7 +341,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Pets">Pets</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 8 ");
                 if(mysqli_num_rows($categoria) != 0){
@@ -368,7 +366,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -376,7 +374,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Casa e Móveis">Casa e Móveis</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 9");
                 if(mysqli_num_rows($categoria) != 0){
@@ -401,7 +399,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -409,7 +407,7 @@ include_once('conexao/conexao.php')
             </section>
             <section class="galeriaprodutos flexcol">
             <h1 class="nomecategoria" id="Diversos">Diversos</h1>
-            <section class="prodcategs flexrow" style="justify-content: flex-start; margin: .5em 2em;">
+            <section class="prodcategs flexrow" style="justify-content: center; margin: .5em 2em;">
             <?php
                 $categoria = mysqli_query($connect, "SELECT * FROM anuncio INNER JOIN imganuncio on anuncio.idanuncio = imganuncio.idanuncio WHERE idcategoria = 10");
                 if(mysqli_num_rows($categoria) != 0){
@@ -434,7 +432,7 @@ include_once('conexao/conexao.php')
                 }unset($anunciodacategoria);
             }else{
                 ?>
-                    <h1 class="nomecategoria" style="display: flex; justify-content: center;">Sem Mais da Categoria</h1>
+                    <h1 style="font-size: 1.15em; font-weight: 400;">Sem Mais da Categoria</h1>
                 <?php
 
             }
@@ -472,7 +470,7 @@ include_once('conexao/conexao.php')
 </body>
 <?php
  if (isset($_SESSION['msgerro'])){
- echo "<script type='text/javascript'>alert('{$_SESSION["msgerro"]}');</script>";
+ echo "<script type='text/javascript' defer>alert('{$_SESSION["msgerro"]}');</script>";
  unset($_SESSION["msgerro"]);
 }
 ?>

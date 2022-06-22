@@ -83,7 +83,7 @@
                         }
                     }else{  
                             $delete = mysqli_query($connect, "DELETE FROM anuncio WHERE idanuncio = $idanuncio");
-                            $_SESSION['msgerro'] = "Erro ao anunciar, tente novamente, caso o erro persista, mude as informações!";
+                            $_SESSION['msgerro'] = "Você deve inserir as três fotos para anunciar!";
                             header("Location: ../pags/anunciar.php");
                     } 
 } }
