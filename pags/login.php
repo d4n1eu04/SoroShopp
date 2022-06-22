@@ -93,8 +93,8 @@ if($_SESSION['id'] && $_SESSION['nome'] && $_SESSION['usuario'] && $_SESSION['em
             <div class="footlinks">
             <h4>Usuário</h4>
                 <ul>
-                    <li><a href="pags/login.php">Login</a></li>
-                    <li><a href="pags/usuario.php">Minha Conta</a></li>
+                    <li><a href="../pags/login.php">Login</a></li>
+                    <li><a href="../pags/usuario.php">Minha Conta</a></li>
                     <li><a href="#">Manual do usuário</a></li>
                 </ul>
             </div>

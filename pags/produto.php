@@ -16,7 +16,7 @@ $slug = $_GET['produto'];
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
-    <script src="js/dropdown.js" defer></script>
+    <script src="../js/dropdown.js" defer></script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/user.css">
@@ -36,17 +36,15 @@ $slug = $_GET['produto'];
         </div>
         <nav>
             <ul>
-                <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
+                <li><a href="../pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
-        <div class="userDropdown">
-            <button class="btnDrop">Login</button>
-            <div class="dropContent">
-                <ul class="dropdown">
-                    <li><a href="">Meus Anúncios</a></li>
-                    <li><a href="">Conta</a></li>
-                    <li><a href="pags/login.php">Sair/Entrar</a></li>
-                </ul>
+        <div class="dropuser" data-dropdown >
+            <button class="dropbtn" data-dropdown-button >Menu</button>
+            <div class="dropcntt">
+                <li class="droplist"><a href="../pags/anunciar.php">Anunciar</a></li>
+                <li class="droplist"><a href="../pags/usuario.php">Minha Conta</a></li>
+                <li class="droplist"><a href="../pags/login.php">Sair/Entrar</a></li>
             </div>
         </div>
     </header>
@@ -105,7 +103,7 @@ $slug = $_GET['produto'];
             ?>
                 <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="../arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="../arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -138,7 +136,7 @@ $slug = $_GET['produto'];
             ?>
                     <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                         <picture>
-                            <img src="../arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                            <img src="../arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                         </picture>
                         <h1>
                             <?php

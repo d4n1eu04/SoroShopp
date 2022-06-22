@@ -107,7 +107,7 @@ ul.categorias > li > a:active{
     display: flex;
     flex-flow: column nowrap;
     padding: .5em;
-    margin: .5em .5rem;
+    margin: .5rem;
     border-radius: .3em;
     width: 12em;
     justify-content: center;
@@ -123,6 +123,9 @@ ul.categorias > li > a:active{
 }
 .produto img{
     padding: .2rem;
+    width: 165px; 
+    height: 165px;
+    border-radius: .4em;
 }
 .produto h1{
     font-size: 1rem;
@@ -142,3 +145,23 @@ ul.categorias > li > a:active{
 .logolink{
     text-decoration: none;
 }
+@media (max-width: 556px){
+    .container_main{
+        margin: 1em 0em;
+    }
+    .prodcategs{
+        padding: 0 .3rem;
+    }
+    .produto{
+        margin: .2em;
+        width: 150px;
+        height: 175px;
+    }
+    .produto h1{
+        font-size: .9rem;
+    }
+    .produto img{
+        height: 100px;
+        width: 100px;
+    }
+  }

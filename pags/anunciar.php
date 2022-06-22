@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <script src="../js/dropdown.js" defer></script>
 </head>
 <body>
 <header>
@@ -33,17 +34,15 @@
         </div>
         <nav>
             <ul>
-                <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
+                <li><a href="../pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
-        <div class="userDropdown">
-            <button class="btnDrop">Login</button>
-            <div class="dropContent">
-                <ul class="dropdown">
-                    <li><a href="">Meus Anúncios</a></li>
-                    <li><a href="">Conta</a></li>
-                    <li><a href="pags/login.php">Sair/Entrar</a></li>
-                </ul>
+        <div class="dropuser" data-dropdown >
+            <button class="dropbtn" data-dropdown-button >Menu</button>
+            <div class="dropcntt">
+                <li class="droplist"><a href="../pags/anunciar.php">Anunciar</a></li>
+                <li class="droplist"><a href="../pags/usuario.php">Minha Conta</a></li>
+                <li class="droplist"><a href="../pags/login.php">Sair/Entrar</a></li>
             </div>
         </div>
     </header>

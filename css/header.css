@@ -47,63 +47,45 @@ input#searchbar:hover{
 input#searchbar:focus{
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.707);
 }
-div.userDropdown{
-    border-radius: .3em;
+.dropuser{
     position: relative;
-    margin-left: 20px;
 }
-button.btnDrop{
-    color: #ffffff;
-    border: solid black;
-    border-radius: .3em;
+.dropbtn{
+    cursor: pointer;
+    margin-left: .3em;
     background-color: black;
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: .3em;
-    transition: all .4s ease-in-out 0s;
+    color: white;
+    padding: .5em;
+    font-size: 1em;
+    border: solid black;
+    border-radius: .4em;
 }
-div.dropContent{
+.dropcntt{
     position: absolute;
     right: 0;
-    top: calc(100% + .5rem);
-    background-color: white;
-    border: solid black;
-    border-radius: .3em;
-    padding: 10px;
-    transition: all .3s ease-in-out 0s;
-    transform: translateY(-10px);
+    top: calc(100% + 1em);
+    background-color: #fff;
+    border-radius: .2em;
+    padding: 2em 1.5em;
+    z-index: 1;
     opacity: 0;
+    transform: translateY(-30px);
+    transition: all .5s ease-in-out 0;
     pointer-events: none;
+    box-shadow: 0px 10px 11px 0px rgba(0, 0, 0, 0.266);
 }
-div.dropContent > ul{
-    list-style-type: none;
-}
-div.dropContent > ul > li{
-    margin: 10px 0px;
-}
-div.dropContent > ul > li:nth-child(1){
-    margin-top: 0;
-}
-div.dropContent > ul > li:last-child{
-    margin-bottom: 0;
-}
-div.dropContent > ul > li:active{
-    color: #24A652;
-}
-button.btnDrop:hover{
-    background-color: rgba(0,0,0,.85);
-    box-shadow: 0px 0px 8px black;
-    transition: all .4s ease-in-out 0s;
-}
-button.btnDrop.active{
-    background-color: transparent;
-    color: black;
-    box-shadow: 0px 0px 10px black;
-}
-button.btnDrop.active + .dropContent{
+.dropuser.active > .dropbtn + .dropcntt{
+    transition: all .3s ease-in-out;
+    transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+}
+.dropcntt li{
+    list-style: none;
+    margin-bottom: .6em;
+}
+.dropcntt li:last-child{
+    margin: 0;
 }
 nav > ul{
     margin: 0;

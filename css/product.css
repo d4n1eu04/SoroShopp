@@ -2,6 +2,7 @@
     margin: 2em;
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
 }
 .fotosprod{
     padding: 2em;

@@ -17,7 +17,7 @@ $username = $_SESSION['usuario'];
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
-    <script src="js/dropdown.js" defer></script>
+    <script src="../js/dropdown.js" defer></script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/user.css">
@@ -38,14 +38,12 @@ $username = $_SESSION['usuario'];
                 <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
-        <div class="userDropdown">
-            <button class="btnDrop">Login</button>
-            <div class="dropContent">
-                <ul class="dropdown">
-                    <li><a href="">Meus Anúncios</a></li>
-                    <li><a href="">Conta</a></li>
-                    <li><a href="pags/login.php">Sair/Entrar</a></li>
-                </ul>
+        <div class="dropuser" data-dropdown >
+            <button class="dropbtn" data-dropdown-button >Menu</button>
+            <div class="dropcntt">
+                <li class="droplist"><a href="../pags/anunciar.php">Anunciar</a></li>
+                <li class="droplist"><a href="../pags/usuario.php">Minha Conta</a></li>
+                <li class="droplist"><a href="../pags/login.php">Sair/Entrar</a></li>
             </div>
         </div>
     </header>
@@ -83,7 +81,7 @@ $username = $_SESSION['usuario'];
                                 ?>
                                 <div class="produto" onclick="window.location.href = '../pags/produto.php?produto=<?=$produto['slug']?>'">
                                     <picture>
-                                        <img src="../arquivos/<?=$produto['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                                        <img src="../arquivos/<?=$produto['arquivo']?>" alt="">
                                     </picture>
                                     <h1>
                                         <?php
@@ -112,7 +110,7 @@ $username = $_SESSION['usuario'];
             <section class="prodcategs flexrow" style="justify-content: center;">
                 <div class="produto">
                     <picture>
-                        <img src="../img/products.png" alt="" style="width: 150px; height: 150px">
+                        <img src="../img/products.png" alt="">
                     </picture>
                     <h1>Produto</h1>
                     <span><strong>VALOR</strong></span>

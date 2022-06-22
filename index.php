@@ -34,14 +34,12 @@ include_once('conexao/conexao.php')
                 <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
-        <div class="userDropdown">
-            <button class="btnDrop">Login</button>
-            <div class="dropContent">
-                <ul class="dropdown">
-                    <li><a href="">Meus Anúncios</a></li>
-                    <li><a href="">Conta</a></li>
-                    <li><a href="pags/login.php">Sair/Entrar</a></li>
-                </ul>
+        <div class="dropuser" data-dropdown >
+            <button class="dropbtn" data-dropdown-button >Menu</button>
+            <div class="dropcntt">
+                <li class="droplist"><a href="./pags/anunciar.php">Anunciar</a></li>
+                <li class="droplist"><a href="./pags/usuario.php">Minha Conta</a></li>
+                <li class="droplist"><a href="./pags/login.php">Sair/Entrar</a></li>
             </div>
         </div>
     </header>
@@ -117,9 +115,7 @@ include_once('conexao/conexao.php')
                 foreach($categoria as $anunciodacategoria){
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
-                    <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
-                    </picture>
+                    <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     <h1>
                         <?php
                             if(strlen($anunciodacategoria['titulo']) > 21){
@@ -151,7 +147,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -184,7 +180,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -217,7 +213,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -250,7 +246,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -283,7 +279,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -316,7 +312,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -349,7 +345,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -382,7 +378,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -415,7 +411,7 @@ include_once('conexao/conexao.php')
             ?>
                 <div class="produto" onclick="window.location.href = './pags/produto.php?produto=<?=$anunciodacategoria['slug']?>'">
                     <picture>
-                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="" style="width: 175px; height: 175px">
+                        <img src="./arquivos/<?=$anunciodacategoria['arquivo']?>" alt="">
                     </picture>
                     <h1>
                         <?php
@@ -475,5 +471,4 @@ include_once('conexao/conexao.php')
 }
 ?>
 <script src="js/carousel.js"></script>
-<script src="js/dropdown.js"></script>
 </html>

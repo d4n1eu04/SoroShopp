@@ -25,7 +25,7 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/d53a163e8b.js" crossorigin="anonymous"></script>
-    <script src="js/dropdown.js" defer></script>
+    <script src="../js/dropdown.js" defer></script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/mainpag.css">
     <link rel="stylesheet" href="../css/user.css">
@@ -48,17 +48,15 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
         </div>
         <nav>
             <ul>
-                <li><a href="pags/usuario.php#favoritos">Favoritos</a></li>
+                <li><a href="../pags/usuario.php#favoritos">Favoritos</a></li>
             </ul>
         </nav>
-        <div class="userDropdown">
-            <button class="btnDrop">Login</button>
-            <div class="dropContent">
-                <ul class="dropdown">
-                    <li><a href="">Meus Anúncios</a></li>
-                    <li><a href="">Conta</a></li>
-                    <li><a href="pags/login.php">Sair/Entrar</a></li>
-                </ul>
+        <div class="dropuser" data-dropdown >
+            <button class="dropbtn" data-dropdown-button >Menu</button>
+            <div class="dropcntt">
+                <li class="droplist"><a href="../pags/anunciar.php">Anunciar</a></li>
+                <li class="droplist"><a href="../pags/usuario.php">Minha Conta</a></li>
+                <li class="droplist"><a href="../pags/login.php">Sair/Entrar</a></li>
             </div>
         </div>
     </header>
@@ -113,6 +111,34 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
             </p>
         </div>
     </main>
+    <footer>
+        <div class="foot">
+            <div class="footlinks">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="#">Sobre a DevMagic</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Ajude-nos</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+            <h4>Usuário</h4>
+                <ul>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="usuario.php">Minha Conta</a></li>
+                    <li><a href="#">Manual do usuário</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+            <h4>Desenvolvido por</h4>
+                <ul>
+                    <li><a href="#"><i class="fa fa-github"></i> - Daniel Luís</a></li>
+                    <li><a href="#"><i class="fa fa-github"></i> - Antonio Marcos</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js" type="text/javascript"></script>
