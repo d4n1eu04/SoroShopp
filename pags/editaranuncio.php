@@ -92,7 +92,7 @@ if(!$_SESSION['id'] && !$_SESSION['nome'] && !$_SESSION['usuario'] && !$_SESSION
                     <button type="submit" name="btnEnvia">Editar</button>
                 </div>
             </form>
-            <form action="../conexao/deleteanuncio.php?anuncio=<?=$infos['slug']?>" method="post"><button type="submit" name="btnApaga" onclick="confirm('Tem certeza? Seu anúncio sera excluído permanentemente')" style="color: white; background-image: linear-gradient(to right,#aa2c2c, #a00e0e);">Apagar</button></form>
+            <form action="../conexao/deleteanuncio.php?anuncio=<?=$infos['slug']?>" method="post"><button type="submit" name="btnApaga" style="color: white; background-image: linear-gradient(to right,#aa2c2c, #a00e0e);">Apagar</button></form>
             <p>
                 <span>
                     <?php
@@ -153,4 +153,5 @@ jQuery(function() {
 
 });
 </script>
+
 </html>

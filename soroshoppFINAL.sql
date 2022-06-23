@@ -16,11 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `soroshopp`
 --
-
-
-
 --
 -- Table structure for table `anuncio`
 --
@@ -38,7 +34,7 @@ CREATE TABLE `anuncio` (
   `slug` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `valor` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idanuncio`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,8 +44,11 @@ CREATE TABLE `anuncio` (
 LOCK TABLES `anuncio` WRITE;
 /*!40000 ALTER TABLE `anuncio` DISABLE KEYS */;
 INSERT INTO `anuncio` VALUES
-(74,13,'Motorola Edge (2020)','Motorola Edge modelo 2020 usado sem grandes detalhes\r\napenas leves arranhados na traseira','2022-06-15',2,'motorola-edge-2020LXvlm2uPfQiq9rIVwSchxMEkefmaSPLkaKey3NsE4agNixSxYo','R$ 1.800,99'),
-(75,13,'Carrinho da F1','Miniatura da Ferrari SF71H, modelo usado por Sebastian Vettel e Kimi Raikkonen em 2018','2022-06-15',5,'carrinho-da-f1tXEYgttAmfv45DXTKMMaC2oAIyeDJLUQmNUvFzacjyW8Cn8MRs','R$ 199,99');
+(86,17,'Gato Persa','Gato  persa jovem','2022-06-21',8,'gato-persapY5peLBKFrhfsQjOpb4A6FrvebKY7QNY4bETOtGVhLUiA1Dee7','R$ 1.500,00'),
+(88,17,'Shiba Inu','Cachorro da raça japonesa Shiba Inu, filhote','2022-06-22',8,'shiba-inuCl207J8KVzj6xRwk8FCjWzbu2eq8g4CIT7A6aEfKxY7EU5C0tH','R$ 3.550,00'),
+(89,17,'3DS Vermelho','3DS primeiro modelo, vermelho, usado e com algumas marcas como arranhões leves','2022-06-22',2,'3ds-vermelhodT3vcsiOeiwsTIPWXpsUNDN1gMD3VizGQahCR3QqdIXEumEN61','R$ 700,99'),
+(90,17,'Adidas Predator','Adidas Predator Instinct ano 2015, Vermelha/Azul/Branca, tamanho 39','2022-06-22',1,'adidas-predatorS6XxdY402YBsTYv05ixiuK9UA7J6b32uOJg9Puk0URpqgfPi2u','R$ 300,15'),
+(91,17,'Fotos de Anime','fotos','2022-06-22',10,'fotos-de-animeckA4GveeeefDzBOxoqNMeUHiQi0gQqH1HY71T3PkFtoDMDGH2a','R$ 32,99');
 /*!40000 ALTER TABLE `anuncio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +125,7 @@ CREATE TABLE `imganuncio` (
   `arquivo1` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `arquivo2` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idimganuncio`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,8 +135,11 @@ CREATE TABLE `imganuncio` (
 LOCK TABLES `imganuncio` WRITE;
 /*!40000 ALTER TABLE `imganuncio` DISABLE KEYS */;
 INSERT INTO `imganuncio` VALUES
-(10,74,'FdYdAqkpYVqJxjSELDnrmotoedge1.jpg','mFwy157SLkWhxGsu17kAmotoedge2.jpg','WlS7K0d7sGfJ9mWZCmkGmotoedge3.jpg'),
-(11,75,'wDiiB1gH79EP95B13haUproduto1.jpg','5foSRnvdiSKLVVi6deIHproduto1.jpg','jyKdTEakkLN8LsAXNihNproduto1.jpg');
+(19,86,'gDfF9q5qXRRZym5qLuu0amora1.jpg','rem9R7dFAeh1clLpep2iamora2.jpg','LHH0ItCudca9Qslx5rnBamora3.jpg'),
+(21,88,'ZMZILXH2DBF7Fxh5rTa9shiba1.jpg','09UzfqoTjVTNhEkxhiPEshiba2.jpg','a4YnaFi4zz0RtPKXQYylshiba3.jpg'),
+(22,89,'LCaVPQjwcRlAGwCkssoS3ds2.jpg','9giVhInz6O0uFVEj6Ucy3ds3.jpg','r1eChz2qFD6FuIqxbfx93ds1.jpg'),
+(23,90,'7jculN6fCndDeOs2KGJBpredator.jpg','vAlk8AZShsVF35TFW1dRpredator2.jpg','sBp8fJIQ0LT0ScPwYZLIpredator3.jpg'),
+(24,91,'ASh5xYC5eLHEkVZ45rwIimages.jpeg','pjDQV98N0HxstSEDlgAbhitohito2.jpeg','zHuSlD1a8JBhYjpLxoixfotoanime.jpg');
 /*!40000 ALTER TABLE `imganuncio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +214,7 @@ CREATE TABLE `usuario` (
   `telefone` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cpf` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,8 +224,7 @@ CREATE TABLE `usuario` (
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` VALUES
-(13,'Daniel Luís Bevilacqua','d4n1eu_04','2004-03-30','$2y$10$amn72NmS.2iIGDwhCJiFA.oEyCN8K.3eFBSeXkv6fPgL7RXuT17.2','18044720,Rua Berenice Prado Mastrogiovani,Jardim das Magnólias,Sorocaba,SP,nº60, Apto 307',2,'danielluisbevilacqua2004@gmail.com',1,'15991203862','49011888871'),
-(14,'Daniel Luís Bevilacqua','migueu','1998-03-09','$2y$10$y4hcAFaeMh1Vu3.MUnt9f.7LYkQOFFsZCMt3l8UmQLF3q2xFDn/Zq','18044720,Rua Berenice Prado Mastrogiovani,Jardim das Magnólias,Sorocaba,SP,nº60, Apto 307',2,'miguelluis@gmail.com',1,'15991203862','7281432836');
+(17,'Daniel Luís Bevilacqua','d4n1eu_04','2004-03-30','$2y$10$7Ow6U9hR/Gtp6mWD5xNKhOkPuKUJKutUeA7IIU2oxZOSW0S2L0qme','18044720 ,Rua Berenice Prado Mastrogiovani ,Jardim das Magnólias ,Sorocaba ,SP ,nº60, apto307',2,'danielluisbevilacqua2004@gmail.com',1,'15991203862','49011888871');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,4 +261,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-15 17:59:17
+-- Dump completed on 2022-06-22 10:48:26
