@@ -13,4 +13,4 @@
   <li>Edição dos anúncios existentes, assim como a exclusão dos mesmos</li>
 </ul>
 
-<h1>Hospedado em: <a href="https://soroshopp.000webhostapp.com"https://soroshopp.000webhostapp.com</a></h1>
+<h1>Hospedado em: https://soroshopp.000webhostapp.com</h1>
