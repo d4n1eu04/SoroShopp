@@ -153,5 +153,17 @@ jQuery(function() {
 
 });
 </script>
+<script>
+    const btnApaga = document.querySelector(".btnApaga");
+    const formApaga = document.querySelector(".formApaga");
+    
+    formApaga.addEventListener('submit', (e) =>{
+        if(!confirm('Você tem certeza disso?')){
+            e.preventDefault();
+        }else{
+            formApaga.setAttribute("action", "../conexao/deleteanuncio.php?anuncio=<?=$infos['slug']?>");
+        }
+    })
+</script>
 
 </html>
